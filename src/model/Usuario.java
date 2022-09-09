@@ -8,7 +8,7 @@ public class Usuario {
     private String endereco;
     private String foto;
     private ArrayList<String> informacoesEmergencia;
-    private HashMap<String, String> contatosEmergencia;  // hashmaps são mais rápidos para pesquisar do que arraylists. (familiar, telefone)
+    private HashMap<String, String> contatosEmergencia;  // hashmaps são mais rápidos para pesquisar do que  arraylists. (familiar, telefone)
 
     public Usuario(String nome, String endereco, String foto, ArrayList<String> informacoesEmergencia, HashMap<String, String> contatosEmergencia) {
         this.nome = nome;
