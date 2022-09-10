@@ -1,7 +1,6 @@
 //import package
 import java.util.ArrayList;
 import java.util.Scanner;
-import model.Usuario;
 
 
 public class App {

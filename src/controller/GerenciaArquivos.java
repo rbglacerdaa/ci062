@@ -1,5 +1,9 @@
 import java.io.*;
 import java.util.*;
+import java.awt.*;
+import java.net.URL;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 public class GerenciaArquivos{
     public GerenciaArquivos(){
     }
@@ -15,7 +19,7 @@ public class GerenciaArquivos{
         }
       }
 
-      public void LeArquivo(String file) {
+      public void LeArquivo(String file) { // le arquivo 
         try {
           File f = new File(file+".txt");
           Scanner myReader = new Scanner(f);
@@ -29,5 +33,21 @@ public class GerenciaArquivos{
           e.printStackTrace();
         }
       }
-   
-}
+   public void  guardaImagem(String fileid,String urlImage){
+    
+    BufferedImage image = null;
+    try {
+       
+        URL url = new URL(urlImage);
+        image = ImageIO.read(url);
+         
+        ImageIO.write(image, "jpg",new File("id.jpg"));
+        ImageIO.write(image, "gif",new File("id.gif"));
+        ImageIO.write(image, "png",new File("id.png"));
+         
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    System.out.println("Imagem salva");
+    }
+   }
