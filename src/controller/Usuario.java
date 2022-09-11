@@ -1,16 +1,19 @@
-
 import java.util.ArrayList;
 
-public class Usuario {
-
+public class Usuario 
+{
     private String nome;
     private String endereco;
     private String foto;
+    private String email;
     private ArrayList<String> informacoesEmergencia;
     private ArrayList<String> familiares;
     private ArrayList<String> contatosEmergencia;
 
-    public Usuario(String nome, String endereco, String foto, ArrayList<String> informacoesEmergencia, ArrayList<String> familiares, ArrayList<String> contatosEmergencia) {
+    public Usuario () {}
+
+    public Usuario (String nome, String endereco, String foto, ArrayList<String> informacoesEmergencia, ArrayList<String> familiares, ArrayList<String> contatosEmergencia) 
+    {
         this.nome = nome;
         this.endereco = endereco;
         this.foto = foto;
@@ -34,6 +37,11 @@ public class Usuario {
         this.foto = foto;
     }
 
+    // seta o email do usuario
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     // seta informacoes de emergencia do usuario
     public void setInformacoesEmergencia(ArrayList<String> informacoesEmergencia) {
         this.informacoesEmergencia = informacoesEmergencia;
@@ -48,8 +56,6 @@ public class Usuario {
     public void setContatosEmergencia(ArrayList<String> contatosEmergencia) {
         this.contatosEmergencia = contatosEmergencia;
     }
-
-
 
     // Retorna o nome do usuário
     public String getNome() {
@@ -66,6 +72,11 @@ public class Usuario {
         return foto;
     }
 
+    // Retorna o email do usuário
+    public String getEmail() {
+        return email;
+    }
+
     // Retorna as informações de emergência do usuário
     public ArrayList<String> getInformacoesEmergencia() {
         return informacoesEmergencia;
@@ -80,6 +91,4 @@ public class Usuario {
     public ArrayList<String> getContatosEmergencia() {
         return contatosEmergencia;
     }
-
-
 }
