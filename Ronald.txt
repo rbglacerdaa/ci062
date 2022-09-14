@@ -1,0 +1,4 @@
+Nome:Ronald
+Endereco:dress
+Informacoes de Emergencia: poeira
+Contatos de Emergencia: {outro=2929}
