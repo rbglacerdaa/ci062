@@ -1,26 +1,21 @@
 //import package
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.text.DateFormat;
 import java.util.Scanner;
-
-import model.*;
 
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Calendar data = Calendar.getInstance();
-        String descricao = null;
-        ArrayList<String> imagensArray = new ArrayList<String>();
-        ArrayList<String> videosArray = new ArrayList<String>();
-        imagensArray.add(null);
-        videosArray.add("videos/video1.mp4");
+        ArrayList<String> familiares = new ArrayList<String>();
+        familiares.add("João");
+        familiares.add("Jorge");
+        ArrayList<String> contatosEmergencia = new ArrayList<String>();
+        contatosEmergencia.add("Maria");
+        ArrayList<String> informacoesEmergencia = new ArrayList<String>();
+        informacoesEmergencia.add("Alergia a penicilina");
 
-        //exemplo de exame
-        Exames exame = new Exames("Colonoscopia", "deu boa",data, descricao, imagensArray, videosArray);
-    
-        System.out.println(exame.getExameInfos());
+        // create a new user
+        Usuario usuario = new Usuario("João", "Rua 1", "foto", informacoesEmergencia, familiares, contatosEmergencia);
+        System.out.println(usuario.getInformacoesEmergencia());
 
     }
 }
