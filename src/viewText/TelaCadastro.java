@@ -16,62 +16,72 @@ public class TelaCadastro
 	//Tentei criar essa funçãozinha para limpar o buffer mas não funciona
 	public static void limpaBuffer (Scanner teclado)
 	{
-		String c = "";
-		Boolean contem = false;
+		Scanner teclado = new Scanner(System.in);
+		HashMap<String, String> contatoEmergencia = new HashMap<String, String>();
+		System.out.println("Seja bem-vindo, cadastre seu usu�rio. ");
+		System.out.println("Qual seu nome?");
+		String nome = teclado.next();
+		System.out.println("Digite seu endere�o:");
+		String endereco = teclado.next();
+		System.out.println("Possui algum informa��o de emergencia (alergias)?");
+		String informacaoEmergencia = teclado.next();
+		System.out.println("Digite um contatos de emergencia");
+		System.out.println("nome do familiar:");
+		String familiarNome = teclado.next();
+		System.out.println("Telefone de contato do familiar");
+		String familiarTelefone = teclado.next();
+		contatoEmergencia.put(familiarNome, familiarTelefone);
 		
-		c = teclado.next();
-		contem = c.contains("\n");
-		
-		while (!contem) 
-		{
-			c = teclado.next();
-			contem = c.contains("\n");
-		}
+		GerenciadorUsuario.CriaUsuario(nome, endereco, informacaoEmergencia, contatoEmergencia);
 	}
 	
-	public static void main (String[] args)
+	public static void telaMenu()
 	{
-		try (Scanner teclado = new Scanner(System.in))
-		{
-			//Precisa encontrar um método de passar as strings inteiras através do teclado.next();
-			//Ex: Digitar o nome "Ricardo Farias" grava apenas o nome "Ricardo"
-			
-			HashMap<String, String> contatoEmergencia = new HashMap<String, String>();
-			/*
-			String nome="", endereco="", informacaoEmergencia="", familiarNome="", familiarTelefone="";
-			
-			System.out.println("Seja bem-vindo, cadastre seu usuario!\n");
-			
-			System.out.println("Qual seu nome?");
-			nome = teclado.next();
-			
-			System.out.println("Digite seu endereço:");
-			endereco = teclado.next();
-			
-			System.out.println("Possui algum informação de emergencia (alergias)?");
-			informacaoEmergencia = teclado.next();
-			
-			System.out.println("Contatos de Emergência -> Familiar:");
-			familiarNome = teclado.next();
-			
-			System.out.println("Contatos de Emergência -> Telefone do familiar:");
-			familiarTelefone = teclado.next();
-			
-			*/
-			contatoEmergencia.put("Reginalda", "+257 12 3745 5598");
-			
-			GerenciadorUsuario.CriaUsuario("Ricardo", "Rua Luiz Leao", "Tenho asma", contatoEmergencia);
-			Cadastros.cadastraMedico("Jorge Amado", "+78 12 1125 2233", "Rua Palestina");
-			
-			//GerenciadorUsuario.editaUsuario(1); //1 edita nome
-			//GerenciadorUsuario.editaUsuario(2); //2 edita endereço
-			//GerenciadorUsuario.editaUsuario(3); //3 edita info emergencia
-			//GerenciadorUsuario.editaUsuario(4); //4 edita hashmap
+		limpaTela();
+		Scanner teclado = new Scanner(System.in);
+		System.out.println("Escolha uma opção:");
+		System.out.println("(1) - Meus dados pessoais");
+		System.out.println("(2) - Contatos médicos");
+		System.out.println("(3) - Consultas");
+		System.out.println("(4) - Exames");
+		int opcao = teclado.nextInt();
+		switch (opcao) {
+			case 1:
+				//tela de dados pessoais
+			case 2:
+				// tela contatos medicos
+			case 3:
+				// tela de consultas
+			case 4:
+				// tela de exames
 		}
-		
-		catch (Exception e)
-		{
-			System.out.println("Erro!");
-		}
+			
 	}
+	
+	
+	
+	public static void telaDadosPessoais() 
+	{
+		Scanner teclado = new Scannet(System.in);
+		//TODO: Controller deve criar uma funcao para retornar as informações do usuario.
+		System.out.println("Seus dados pessoais");
+		System.out.println("Nome: " + nome);
+		System.out.println("Endereço: " + endereco);
+		System.out.println("Informações de emergencia: " + infoEmergencia);
+		System.out.println("Nome do contato de emergencia: " + nomeContatoEmergencia);
+		System.out.println("Telefone do contato de emergencia: " + telefoneContatoEmergencia);
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Digite 1 para alterar seus dados");
+		System.out.println("Digite 0 para voltar ao Menu");
+		int opcao = teclado.nextInt();
+		switch (opcao) {
+			case 1:
+				//tela de alterar dados pessoais
+			case 2:
+				telaMenu();
+		}
+
+	}
+
 }
