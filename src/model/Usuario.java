@@ -1,24 +1,20 @@
+package model;
 import java.util.ArrayList;
+import java.util.HashMap;
 
-public class Usuario 
-{
+public class Usuario {
+
     private String nome;
     private String endereco;
     private String foto;
-    private String email;
     private ArrayList<String> informacoesEmergencia;
-    private ArrayList<String> familiares;
-    private ArrayList<String> contatosEmergencia;
+    private HashMap<String, String> contatosEmergencia;  // hashmaps são mais rápidos para pesquisar do que arraylists. (familiar, telefone)
 
-    public Usuario () {}
-
-    public Usuario (String nome, String endereco, String foto, ArrayList<String> informacoesEmergencia, ArrayList<String> familiares, ArrayList<String> contatosEmergencia) 
-    {
+    public Usuario(String nome, String endereco, String foto, ArrayList<String> informacoesEmergencia, HashMap<String, String> contatosEmergencia) {
         this.nome = nome;
         this.endereco = endereco;
         this.foto = foto;
         this.informacoesEmergencia = informacoesEmergencia;
-        this.familiares = familiares;
         this.contatosEmergencia = contatosEmergencia;
     }
 
@@ -37,25 +33,17 @@ public class Usuario
         this.foto = foto;
     }
 
-    // seta o email do usuario
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     // seta informacoes de emergencia do usuario
     public void setInformacoesEmergencia(ArrayList<String> informacoesEmergencia) {
         this.informacoesEmergencia = informacoesEmergencia;
     }
 
-    // seta os familiares do usuario
-    public void setFamiliares(ArrayList<String> familiares) {
-        this.familiares = familiares;
-    }
-
     // seta os contatos de emergencia do usuario
-    public void setContatosEmergencia(ArrayList<String> contatosEmergencia) {
+    public void setContatosEmergencia(HashMap<String, String> contatosEmergencia) {
         this.contatosEmergencia = contatosEmergencia;
     }
+
+
 
     // Retorna o nome do usuário
     public String getNome() {
@@ -72,23 +60,14 @@ public class Usuario
         return foto;
     }
 
-    // Retorna o email do usuário
-    public String getEmail() {
-        return email;
-    }
-
     // Retorna as informações de emergência do usuário
     public ArrayList<String> getInformacoesEmergencia() {
         return informacoesEmergencia;
     }
 
-    // Retorna lista de familiares
-    public ArrayList<String> getFamiliares() {
-        return familiares;
-    }
-
     // Retorna lisa de contatos de emergencia
-    public ArrayList<String> getContatosEmergencia() {
+    public HashMap<String, String> getContatosEmergencia() {
         return contatosEmergencia;
     }
+
 }
