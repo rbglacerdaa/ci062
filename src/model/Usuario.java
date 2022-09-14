@@ -1,19 +1,19 @@
 package model;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Usuario {
 
     private String nome;
     private String endereco;
-    private String foto;
-    private ArrayList<String> informacoesEmergencia;
+    private String informacoesEmergencia;
     private HashMap<String, String> contatosEmergencia;  //(familiar, telefone)
     
-    public Usuario(String nome, String endereco, String foto, ArrayList<String> informacoesEmergencia, HashMap<String, String> contatosEmergencia) {
+    public Usuario () {}
+    
+    public Usuario(String nome, String endereco, String informacoesEmergencia, HashMap<String, String> contatosEmergencia) 
+    {
         this.nome = nome;
         this.endereco = endereco;
-        this.foto = foto;
         this.informacoesEmergencia = informacoesEmergencia;
         this.contatosEmergencia = contatosEmergencia;
     }
@@ -28,13 +28,8 @@ public class Usuario {
         this.endereco = endereco;
     }
 
-    // seta a foto do usuario
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
-
     // seta informacoes de emergencia do usuario
-    public void setInformacoesEmergencia(ArrayList<String> informacoesEmergencia) {
+    public void setInformacoesEmergencia(String informacoesEmergencia) {
         this.informacoesEmergencia = informacoesEmergencia;
     }
 
@@ -42,8 +37,6 @@ public class Usuario {
     public void setContatosEmergencia(HashMap<String, String> contatosEmergencia) {
         this.contatosEmergencia = contatosEmergencia;
     }
-
-
 
     // Retorna o nome do usuário
     public String getNome() {
@@ -55,13 +48,9 @@ public class Usuario {
         return endereco;
     }
 
-    // Retorna o endereço da foto do usuário
-    public String getFoto() {
-        return foto;
-    }
 
     // Retorna as informações de emergência do usuário
-    public ArrayList<String> getInformacoesEmergencia() {
+    public String getInformacoesEmergencia() {
         return informacoesEmergencia;
     }
 
