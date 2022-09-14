@@ -1,16 +1,20 @@
 package viewText;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
-import controller.*;
-public class TelaCadastro {
+
+import controller.Cadastros;
+import controller.GerenciadorUsuario;
+//import controller.*;
+public class TelaCadastro 
+{
 	
 	protected static void limpaTela()
 	{
 		for (int i = 0; i < 50; ++i) System.out.println();;
 	}
 	
-	public static void telaBoasVindas()
+	//Tentei criar essa funçãozinha para limpar o buffer mas não funciona
+	public static void limpaBuffer (Scanner teclado)
 	{
 		Scanner teclado = new Scanner(System.in);
 		HashMap<String, String> contatoEmergencia = new HashMap<String, String>();
