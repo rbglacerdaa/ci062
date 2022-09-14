@@ -7,13 +7,12 @@ public class Usuario {
     private String nome;
     private String endereco;
     private String foto;
-    private ArrayList<String> informacoesEmergencia;
+    private String informacoesEmergencia;
     private HashMap<String, String> contatosEmergencia;  //(familiar, telefone)
     
-    public Usuario(String nome, String endereco, String foto, ArrayList<String> informacoesEmergencia, HashMap<String, String> contatosEmergencia) {
+    public Usuario(String nome, String endereco, String foto, String informacoesEmergencia, HashMap<String, String> contatosEmergencia) {
         this.nome = nome;
         this.endereco = endereco;
-        this.foto = foto;
         this.informacoesEmergencia = informacoesEmergencia;
         this.contatosEmergencia = contatosEmergencia;
     }
@@ -34,7 +33,7 @@ public class Usuario {
     }
 
     // seta informacoes de emergencia do usuario
-    public void setInformacoesEmergencia(ArrayList<String> informacoesEmergencia) {
+    public void informacoesEmergencia() {
         this.informacoesEmergencia = informacoesEmergencia;
     }
 
@@ -61,7 +60,7 @@ public class Usuario {
     }
 
     // Retorna as informações de emergência do usuário
-    public ArrayList<String> getInformacoesEmergencia() {
+    public String getInformacoesEmergencia() {
         return informacoesEmergencia;
     }
 
