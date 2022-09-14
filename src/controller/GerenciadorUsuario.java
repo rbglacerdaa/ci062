@@ -1,30 +1,34 @@
 package controller;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
 
 import model.*;
 
 public class GerenciadorUsuario
 { 
-    //Cria usuario e armazena os arquivos dele 
+	//Cria usuario e armazena os arquivos dele 
     public static boolean CriaUsuario (String nome, String endereco, String informacoesEmergencia, HashMap<String, String> contatosEmergencia) 
     { 
         try 
         {
             Usuario usuario = new Usuario(nome, endereco, informacoesEmergencia, contatosEmergencia);
         	
-        	FileWriter f = new FileWriter(usuario.getNome()+".txt", true);
+        	FileWriter f = new FileWriter("usuario.txt", true);
             
             f.write
             (
-                "Nome:"+usuario.getNome() 
-                +"\nEndereco:" +usuario.getEndereco()
-                +"\nInformacoes de Emergencia: "+usuario.getInformacoesEmergencia()
-                +"\nContatos de Emergencia: "+usuario.getContatosEmergencia()
-                +"\n"
+                ""+usuario.getNome() 
+                +"\n"+usuario.getEndereco()
+                +"\n"+usuario.getInformacoesEmergencia()
+                +"\n"+usuario.getContatosEmergencia()
             );
-
+            
             f.close();
             
             return true;
@@ -67,23 +71,91 @@ public class GerenciadorUsuario
 	    return false;
 	}
 	
-	public void editaUsuario (int campo)
+	public static void editaUsuario (int campoDeAlteracao)
 	{
-		switch (campo)
+		try (Scanner tecladoLocal = new Scanner(System.in)) 
 		{
-			case 1:
-				//Editar Nome
-			break;
+			Path path = Paths.get("usuario.txt");
+			List<String> linhas;
 			
-			case 2:
-				//Editar endereco
-			break;
-			
-			case 3:
-				//Editar infoEmergencia
-			break;
+			switch (campoDeAlteracao)
+			{
+				case 1:
+					//Editar nome	
+					String novoNome = "";
+					
+					System.out.println("Digite o novo nome:");
+					novoNome = tecladoLocal.next();
+					
+					linhas = Files.readAllLines(path);
+					
+					linhas.remove(0);
+					
+					linhas.add(0, novoNome);
+
+			        Files.write(path, linhas);
+				break;
+				
+				case 2:
+					//Editar endereço
+					String novoEndereco = "";
+					
+					System.out.println("Digite o novo endereço:");
+					novoEndereco = tecladoLocal.next();
+
+					linhas = Files.readAllLines(path);
+					
+					linhas.remove(1);
+			        
+					linhas.add(1, novoEndereco);
+
+			        Files.write(path, linhas);
+				break;
+				
+				case 3:
+					//Editar informações de emergência
+					String novaInfoEmergencia = "";
+					
+					System.out.println("Digite o novo endereço:");
+					novaInfoEmergencia = tecladoLocal.next();
+					
+					linhas = Files.readAllLines(path);
+					
+					linhas.remove(2);
+					
+			        linhas.add(2, novaInfoEmergencia);
+
+			        Files.write(path, linhas);
+				break;
+				
+				case 4:
+					//Editar contatos de emergência
+					HashMap<String, String> novoContatoEmergencia = new HashMap<>();
+					String novoFamiliar = "", novoFamiliarTelefone = ""; 
+					
+					System.out.println("Digite o nome do novo familiar:");
+					novoFamiliar = tecladoLocal.next();
+					
+					System.out.println("Digite o contato deste novo familiar:");
+					novoFamiliarTelefone = tecladoLocal.next();
+					
+					novoContatoEmergencia.put(novoFamiliar, novoFamiliarTelefone);
+					
+					linhas = Files.readAllLines(path);
+					
+					linhas.remove(3);
+					
+			        linhas.add(3, novoContatoEmergencia.toString());
+
+			        Files.write(path, linhas);
+				break;
+			}
+		}
+		
+		catch (Exception e)
+		{
+			System.out.println("Erro na edição do arquivo");
 		}
 	}
-
 }
 

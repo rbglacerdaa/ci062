@@ -4,13 +4,11 @@ public class ContatoMedico {
     private String nome;
     private String telefone;
     private String endereco;
-    private String foto;
 
-    public ContatoMedico(String nome, String telefone, String endereco, String foto) {
+    public ContatoMedico(String nome, String telefone, String endereco) {
         this.nome = nome;
         this.telefone = telefone;
         this.endereco = endereco;
-        this.foto = foto;
     }
 
     public String getNome() {
@@ -25,10 +23,6 @@ public class ContatoMedico {
         return endereco;
     }
 
-    public String getFoto() {
-        return foto;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -39,10 +33,6 @@ public class ContatoMedico {
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
     }
     
 }
