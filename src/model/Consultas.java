@@ -11,7 +11,8 @@ public class Consultas extends Agendamentos{
     private String prescricao;
     private String laudo;
 
-    public Consultas(String medico, String especialidade, String diagnostico, String prescricao, String laudo, Calendar data, String descricao, ArrayList<String> imagens, ArrayList<String> videos) {
+    
+    public setConsulta(String medico, String especialidade, String diagnostico, String prescricao, String laudo, Calendar data, String descricao, ArrayList<String> imagens, ArrayList<String> videos) {
         super(data, descricao, imagens, videos);
         this.medico = medico;
         this.especialidade = especialidade;
@@ -19,5 +20,25 @@ public class Consultas extends Agendamentos{
         this.prescricao = prescricao;
         this.laudo = laudo;
     }
+    public String  getMedico(){
+    	return this.medico;
+    	
+    }
+    public String getEspecialidade(){
+    	return this.especialidade;
+    	
+    }
 
+    public String getDiagnostico(){
+    	return this.diagnostico;
+    	
+    }
+    public String getPrecricao(){
+    	return this.prescricao;
+    	
+    }
+    public String getLaudo(){
+    	return this.laudo;
+    	
+    }
 }

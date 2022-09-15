@@ -26,5 +26,6 @@ public class Exames extends Agendamentos{
         infos.add("Videos: " + this.videos);
         return infos;
     }
+    
 
 }
