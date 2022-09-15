@@ -14,8 +14,8 @@ public class Agendamentos {
     public Agendamentos(Calendar data, String descricao, ArrayList<String> imagens, ArrayList<String> videos) {
         this.data = data;
         this.descricao = descricao;
-        this.imagens = imagens;
-        this.videos = videos;
+        this.imagens = imagens != null ? imagens : null;
+        this.videos = videos != null ? videos : null;
     }
 
     public ArrayList<String> getAgendamentoInfos(){

@@ -12,14 +12,17 @@ public class Consultas extends Agendamentos{
     private String laudo;
 
     
-    public setConsulta(String medico, String especialidade, String diagnostico, String prescricao, String laudo, Calendar data, String descricao, ArrayList<String> imagens, ArrayList<String> videos) {
-        super(data, descricao, imagens, videos);
-        this.medico = medico;
-        this.especialidade = especialidade;
-        this.diagnostico = diagnostico;
-        this.prescricao = prescricao;
-        this.laudo = laudo;
+    //Parametros que verificam se são null vc pode passar o parametro com valor null, ou seja, não são obrigatorios de estarem preenchidos, mas são obrigatórios na cria
+    public Consultas(String medico, String especialidade, String diagnostico, String prescricao, String laudo, Calendar data, String descricao, ArrayList<String> imagens, ArrayList<String> videos)
+    {
+    	super(data, descricao,imagens,videos);
+    	this.medico = medico; // parametro obrigatorio
+    	this.especialidade = especialidade;
+    	this.diagnostico = diagnostico != null ? diagnostico : null; // parametro opcional
+    	this.prescricao = prescricao != null ? prescricao : null;
+    	this.laudo = laudo != null ? laudo : null;
     }
+    
     public String  getMedico(){
     	return this.medico;
     	
