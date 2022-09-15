@@ -1,20 +1,16 @@
 package viewText;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
-
-import controller.Cadastros;
-import controller.GerenciadorUsuario;
-//import controller.*;
-public class TelaCadastro 
-{
+import controller.*;
+public class TelaCadastro {
 	
 	protected static void limpaTela()
 	{
 		for (int i = 0; i < 50; ++i) System.out.println();;
 	}
 	
-	//Tentei criar essa funçãozinha para limpar o buffer mas não funciona
-	public static void limpaBuffer (Scanner teclado)
+	public static void telaBoasVindas()
 	{
 		Scanner teclado = new Scanner(System.in);
 		HashMap<String, String> contatoEmergencia = new HashMap<String, String>();
@@ -62,7 +58,7 @@ public class TelaCadastro
 	
 	public static void telaDadosPessoais() 
 	{
-		Scanner teclado = new Scannet(System.in);
+		Scanner teclado = new Scanner(System.in);
 		//TODO: Controller deve criar uma funcao para retornar as informações do usuario.
 		System.out.println("Seus dados pessoais");
 		System.out.println("Nome: " + nome);
@@ -82,6 +78,18 @@ public class TelaCadastro
 				telaMenu();
 		}
 
+	}
+	
+	public static void teleaAlterarDadosPessoais()
+	{
+		Scanner teclado = new Scanner(System.in);
+		System.out.println("Escolha qual campo deseja alterar");
+		System.out.println("(1) - Nome");
+		System.out.println("(2) - Endereço");
+		System.out.println("(3) - Informações de emergencia");
+		System.out.println("(4) - Contato de emergencia");
+		int opcao = teclado.nextInt();
+		
 	}
 
 }
