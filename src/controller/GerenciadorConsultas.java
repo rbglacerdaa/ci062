@@ -22,17 +22,26 @@ import java.io.*;
 
 public class GerenciadorConsultas{
 	
-	  public static boolean CriaConsulta (String medico, String especialidade, String diagnostico, String prescricao, String laudo, String data, String descricao) 
+	  public static boolean CriaConsulta (String medico, String especialidade, String data, String descricao) 
 	    { 
 	        try 
 	        {
+	        	String diagnostico = null;
+	        	String prescricao = null;
+	        	String laudo = null;
 	            Consultas consulta = new Consultas(medico, especialidade, diagnostico,prescricao, laudo, data, descricao);
-	        	FileWriter f = new FileWriter("Consulta1.txt", true);
+	        	FileWriter f = new FileWriter("Consultas.txt", true);
 	            
 	            
 	            f.write
 	            (
-	                ""+consulta.getMedico()
+	                ""+"medico:"+consulta.getMedico()
+	                +"\n"+"especialidade:"+consulta.getEspecialidade()
+	                +"\n"+"diagnostico:"+consulta.getDiagnostico()
+	                +"\n"+"pescricao:"+consulta.getPrescricao()
+	                +"\n"+"laudo:"+consulta.getLaudo()
+	                +"\n"+"data:"+consulta.getData()
+	                +"\n"+"descricao:"+consulta.getDescricao()
 	            );
 	            
 	            f.close();
@@ -87,23 +96,31 @@ public class GerenciadorConsultas{
 	
 }
 
+	public static ArrayList<String> leitor()
+	{
+		try{
 
-	public static void leitor()
-	{ 
-		BufferedReader buffRead = new BufferedReader(new FileReader("Consultas.txt"));
-		String linha = "";
-		while (true) {
-			if (linha != null) {
-				System.out.println(linha);
-
-			} else
-				break;
-			linha = buffRead.readLine();
-		}
-		buffRead.close();
-	        
-	    }
+			BufferedReader buffRead = new BufferedReader(new FileReader("Consultas.txt"));
+			String linha = "";
+			ArrayList<String> retorno = new ArrayList<String>();
+			while (true) {
+				if (linha != null) {
+					retorno.add(linha);
 	
+				} else
+					break;
+				linha = buffRead.readLine();
+			}
+			buffRead.close();
+			return retorno;
+				
+		}
+		catch (Exception e)
+	    {
+	        System.out.println("Erro na leitura do arquivo");
+	        e.printStackTrace();
+	    }
+	}
 
 }
 	    

@@ -36,12 +36,22 @@ public class Consultas extends Agendamentos{
     	return this.diagnostico;
     	
     }
-    public String getPrecricao(){
+    public String getPrescricao(){
     	return this.prescricao;
     	
     }
     public String getLaudo(){
     	return this.laudo;
+    	
+    }
+    
+    public String getData(){
+    	return this.data;
+    	
+    }
+    
+    public String getDescricao(){
+    	return this.descricao;
     	
     }
     

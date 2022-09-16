@@ -2,6 +2,9 @@ package model;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import controller.GerenciadorConsultas;
+
 import java.io.*;
 public class TelaConsulta{
 
@@ -25,10 +28,10 @@ public class TelaConsulta{
 					//TelaMenu.telaMenu();
 					break;
 				case 1:
-					telaVisualizarConsulta();
+					//telaVisualizarConsulta();
 					break;
 				case 2:
-					//telaAgendarConsulta();
+					telaAgendarConsulta();
 					break;
 				case 3:
 					//telaModificarConsulta();
@@ -38,6 +41,29 @@ public class TelaConsulta{
 		}
 	
 
+		
+		public static void telaAgendarConsulta()
+		{
+			limpaTela();
+			Scanner teclado = new Scanner(System.in);
+
+			System.out.println("Vamos agendar uma nova consulta");
+			System.out.println("Digite o nome do médico:");
+			String nomeMedico = teclado.nextLine();
+			System.out.println("Digite a especialidade do medico");
+			String especialidade = teclado.nextLine();
+			System.out.println("Digite uma descricao sobre a consulta:");
+			String descricao = teclado.nextLine();
+			System.out.println("Digite a data da consulta: (DIA/MES/ANO)");
+			String data = teclado.nextLine();
+			GerenciadorConsultas.CriaConsulta(nomeMedico, especialidade, data, descricao);
+			System.out.println("Digite 0 para voltar ao Menu");
+			int opcao = teclado.nextInt();
+			
+			if (opcao == 0) {
+				TelaMenu.telaMenu();
+			}
+		}
 		
 	
 		public static void telaVisualizarConsulta ()throws IOException 
