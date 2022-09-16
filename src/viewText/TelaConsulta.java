@@ -36,7 +36,7 @@ public class TelaConsulta{
 					telaAgendarConsulta();
 					break;
 				case 3:
-					//telaModificarConsulta();
+					telaModificarConsulta();
 					break;
 
 			}
@@ -97,6 +97,95 @@ public class TelaConsulta{
 				System.out.println("Erro ao visualizar lista de consultas");
 			}
 			
+		}
+		
+		public static void telaModificarConsulta ()
+		{
+			int campoUm = 0, campoDois = 0;
+			boolean resultado=false;
+			String novoDado = "";
+			
+			try (Scanner teclado = new Scanner(System.in))
+			{
+				System.out.println("Modificar Consultas");
+				GerenciadorConsultas.exibeConsultas();
+				
+				System.out.println("Digite o número da consulta que deseja alterar:");
+				campoUm = teclado.nextInt();
+				limpaTela();
+				
+				System.out.println("Qual campo de consulta deseja alterar?");
+				System.out.println("1 - Médico");
+				System.out.println("2 - Especialidade");
+				System.out.println("3 - Diagnóstico");
+				System.out.println("4 - Prescrição");
+				System.out.println("5 - Laudo");
+				System.out.println("6 - Data");
+				System.out.println("7 - Descrição");
+				campoDois = teclado.nextInt();
+				limpaTela();
+				
+				switch (campoDois) 
+				{
+					case 1:
+						System.out.println("Digite o nome do novo medico");
+						novoDado = teclado.nextLine();
+						resultado = GerenciadorConsultas.editaConsulta(campoUm, campoDois, novoDado);
+					break;
+					
+					case 2:
+						limpaTela();
+						System.out.println("Digite o nome da nova especialidade");
+						novoDado = teclado.nextLine();
+						resultado = GerenciadorConsultas.editaConsulta(campoUm, campoDois, novoDado);
+					break;
+					
+					case 3:
+						limpaTela();
+						System.out.println("Digite o novo diagnóstico");
+						novoDado = teclado.nextLine();
+						resultado = GerenciadorConsultas.editaConsulta(campoUm, campoDois, novoDado);
+					break;
+					
+					case 4:
+						limpaTela();
+						System.out.println("Digite a nova prescrição");
+						novoDado = teclado.nextLine();
+						resultado = GerenciadorConsultas.editaConsulta(campoUm, campoDois, novoDado);
+					break;
+					
+					case 5:
+						limpaTela();
+						System.out.println("Digite o novo laudo");
+						novoDado = teclado.nextLine();
+						resultado = GerenciadorConsultas.editaConsulta(campoUm, campoDois, novoDado);
+					break;
+						
+					case 6:
+						limpaTela();
+						System.out.println("Digite a nova data");
+						novoDado = teclado.nextLine();
+						resultado = GerenciadorConsultas.editaConsulta(campoUm, campoDois, novoDado);
+					break;
+					
+					case 7:
+						limpaTela();
+						System.out.println("Digite a nova descrição");
+						novoDado = teclado.nextLine();
+						resultado = GerenciadorConsultas.editaConsulta(campoUm, campoDois, novoDado);
+					break;
+				}
+				
+				if (resultado)
+					System.out.println("Consulta alterada com sucesso");
+				else
+					System.out.println("Erro ao alterar consulta");
+			}
+			
+			catch (Exception e)
+			{
+				System.out.println("Erro de entrada do teclado");
+			}
 		}
 }	
 

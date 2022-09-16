@@ -110,6 +110,7 @@ public class GerenciadorConsultas{
 				Path path = Paths.get("/Users/ronaldbatista/ricardo/ci062/consultas/consulta_" + contador + ".txt");
 				List<String> linhas;
 				linhas = Files.readAllLines(path);
+				System.out.println("Consulta "+(i+1));
 				System.out.println("----------------------");
 				System.out.println(linhas.get(0).toString());
 				System.out.println(linhas.get(1).toString());
@@ -127,6 +128,119 @@ public class GerenciadorConsultas{
 			System.out.println("Erro ao tentar exibir Consultas");
 			e.printStackTrace();
 		}	
+	}
+	
+	public static boolean editaConsulta (int consultaParaEditar, int campoParaEditar, String novoDado) 
+	{
+		File pasta = new File("/Users/ronaldbatista/ricardo/ci062/consultas"); 
+		int contador = 0;
+		
+		File[] lista = pasta.listFiles();
+
+		for (File file : lista) 
+		{
+		    if (file.isFile()) 
+		        contador ++;
+		}
+		
+		if ( (consultaParaEditar > contador) || (consultaParaEditar < 0) )
+			return false;
+		
+		try 
+		{
+			Path path = Paths.get("/Users/ronaldbatista/ricardo/ci062/consultas_"+consultaParaEditar+".txt");
+			List<String> linhas;
+			
+			switch (campoParaEditar) 
+			{
+				case 1:
+					//Editar nome do medico
+					linhas = Files.readAllLines(path);
+					
+					linhas.remove(0);
+					
+					linhas.add(0, "medico:"+novoDado);
+
+			        Files.write(path, linhas);
+				break;
+				
+				case 2:
+					//Editar especialidade do medico
+					linhas = Files.readAllLines(path);
+					
+					linhas.remove(1);
+					
+					linhas.add(1, "especialdiade:"+novoDado);
+
+			        Files.write(path, linhas);
+				break;
+				
+				case 3:
+					//Editar diagnostico do medico
+					linhas = Files.readAllLines(path);
+					
+					linhas.remove(2);
+					
+					linhas.add(2, "diagnostico:"+novoDado);
+
+			        Files.write(path, linhas);
+				break;
+				
+				case 4:
+					//Editar prescricao do medico
+					linhas = Files.readAllLines(path);
+					
+					linhas.remove(3);
+					
+					linhas.add(3, "prescricao:"+novoDado);
+
+			        Files.write(path, linhas);
+				break;
+				
+				case 5:
+					//Editar laudo do medico
+					linhas = Files.readAllLines(path);
+					
+					linhas.remove(4);
+					
+					linhas.add(4, "laudo:"+novoDado);
+
+			        Files.write(path, linhas);
+				break;
+				
+				
+				case 6:
+					//Editar prescricao do medico
+					linhas = Files.readAllLines(path);
+					
+					linhas.remove(5);
+					
+					linhas.add(5, "data:"+novoDado);
+
+			        Files.write(path, linhas);
+				break;
+				
+				case 7:
+					//Editar prescricao do medico
+					linhas = Files.readAllLines(path);
+					
+					linhas.remove(6);
+					
+					linhas.add(6, "descricao:"+novoDado);
+
+			        Files.write(path, linhas);
+				break;
+			}
+			
+			return true;
+		}
+		
+		catch (Exception e)
+		{
+			System.out.println("Erro ao abrir o arquivo da consulta");
+		}
+		
+		return false;
 	}
 
 }
