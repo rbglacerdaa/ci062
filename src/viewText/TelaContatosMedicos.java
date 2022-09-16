@@ -6,23 +6,25 @@ import java.util.Scanner;
 
 import controller.GerenciadorMedico;
 
-public class TelaContatosMedicos {
+public class TelaContatosMedicos 
+{
 	protected static void limpaTela()
 	{
 		for (int i = 0; i < 50; ++i) System.out.println();;
 	}
 	
-	
-	public static void telaContatosMedicos() 
+	public static void telaContatosMedicos () 
 	{
 		limpaTela();
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("Digite 1 para visualizar seus contatos medicos");
 		System.out.println("Digite 2 para criar um novo contato");
-		System.out.println("Digite 3 para modificar um contato existente");
-		System.out.println("Digite 4 para excluir um contato existente");
+		/*System.out.println("Digite 3 para modificar um contato existente");
+		System.out.println("Digite 4 para excluir um contato existente");*/
 		System.out.println("Digite 0 para voltar ao Menu Principal");
+		
 		int opcao = teclado.nextInt();
+		
 		switch (opcao) {
 			case 0:
 				TelaMenu.telaMenu();
@@ -33,12 +35,16 @@ public class TelaContatosMedicos {
 			case 2:
 				telaCriarContatoMedico();
 				break;
-			case 3:
+				
+			default:
+				System.out.println("Opção inválida");
+				break;
+			/*case 3:
 				telaModificarContatoMedico();
 				break;
 			case 4:
 				telaExcluirContatoMedico();
-				break;
+				break;*/
 		}
 	}
 	
@@ -47,19 +53,13 @@ public class TelaContatosMedicos {
 	{
 		limpaTela();
 		Scanner teclado = new Scanner(System.in);
-		List<String>data = GerenciadorMedico.exibeMedicos();
-		int quantidadeContatos = data.size(); 
 		System.out.println("Seus contatos medicos");
-		for (int i = 0; i < quantidadeContatos-3; i++) {
-			System.out.println("Nome: " + data.get(i).toString());
-			System.out.println("telefone: " + data.get(i+1).toString());
-			System.out.println("endereco: " + data.get(i+2).toString());
-			System.out.println("especialidade: " + data.get(i+3).toString());
-		}
+		GerenciadorMedico.exibeMedicos();
 		System.out.println("");
 		System.out.println("");
 		System.out.println("Digite 1 para voltar a tela anterior");
 		System.out.println("Digite 0 para voltar ao Menu");
+		
 		int opcao = teclado.nextInt();
 		switch (opcao) {
 			case 0:
@@ -70,7 +70,6 @@ public class TelaContatosMedicos {
 				
 		}
 	}
-	
 	
 	public static void telaCriarContatoMedico()
 	{
@@ -97,8 +96,7 @@ public class TelaContatosMedicos {
 		}
 	}
 	
-	
-	//TODO: Editar qual contato médico? Tem mais de um...
+	/*
 	public static void telaModificarContatoMedico()
 	{
 		limpaTela();
@@ -139,7 +137,6 @@ public class TelaContatosMedicos {
 			TelaMenu.telaMenu();
 	}
 	
-	
 	public static void telaExcluirContatoMedico()
 	{
 		limpaTela();
@@ -173,5 +170,5 @@ public class TelaContatosMedicos {
 			System.out.println("Contato excluido com sucesso!");
 		else
 			System.out.println("Erro ao excluir contato médico");
-	}
+	}*/
 }
