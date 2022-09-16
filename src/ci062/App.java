@@ -1,6 +1,7 @@
 package ci062;
 import viewText.TelaCadastro;
 import viewText.TelaMenu;
+import viewText.TelaExame;
 import controller.*;
 import model.*;
 import viewText.TelaCadastro;
@@ -10,9 +11,8 @@ public class App {
 
 	public static void main(String[] args) 
 	{
-		TelaMenu.telaMenu();
-		
-		
+		//TelaMenu.telaMenu();
+		TelaExame.telaExame();
 		//nome = GerenciadorUsuario.retornaDado(5);
 		
 		//GerenciadorUsuario.CriaUsuario("Renata Farias", "Rua Luiz Leao", "Tenho bronquite", null);

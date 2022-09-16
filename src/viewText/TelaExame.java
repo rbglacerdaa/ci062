@@ -1,12 +1,13 @@
 package model;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.io.*;
-public class TelaExame {
 
-	public class TelaExame{
+import controller.GerenciadorUsuario;
+
+import java.io.*;
+public class TelaExame{
+
 
 			protected static void limpaTela()
 			{
@@ -14,7 +15,7 @@ public class TelaExame {
 			}
 			
 			
-			public static void TelaExame()
+			public static void telaExame()
 			{
 				limpaTela();
 				Scanner teclado = new Scanner(System.in);
@@ -23,25 +24,48 @@ public class TelaExame {
 				int opcao = teclado.nextInt();
 				switch (opcao) {
 					case 0:
-						//TelaMenu.telaMenu();
+						//telaMenu.telaMenu();
 						break;
 					case 1:
-						telaVisualizarConsulta();
+						telaVisualizarExame();
 						break;
 
 				}
 			}
 		
 
+			public static void telaVizualizarExame()
+			{
+				limpaTela();
+				
+				Scanner teclado = new Scanner(System.in);
+				System.out.println("Seus dados pessoais");
+				System.out.println("Nome: " + GerenciaExame.retornaDado(1));
+				System.out.println("Resultado: " + GerenciaExame.retornaDado(2));
+				System.out.println("Data: " + GerenciaExame.retornaDado(3));
+				System.out.println("Descricao: " + GerenciaExame.retornaDado(4));
+				System.out.println("Imagens: " + GerenciaExame.retornaDado(5));
+				System.out.println("Video: " + GerenciaExame.retornaDado(6));
+				System.out.println("");
+				System.out.println("");
+				System.out.println("Digite 0 para voltar ao Menu");
+				int opcao = teclado.nextInt();
+				
+				if (opcao == 0) {
+					TelaMenu.telaMenu();
+				}
+			}
+			
+
 			
 		
-			public static void telaVisualizarConsulta ()throws IOException 
+			public static void telaVisualizarExame()
 			{
 				limpaTela();
 			
-				GerenciadorExame.leitor();
+				GerenciaExames.leitor();
 				
 			}
 			
 	}
-}
+
