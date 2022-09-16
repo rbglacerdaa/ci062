@@ -56,8 +56,11 @@ public class TelaConsulta{
 			String descricao = teclado.nextLine();
 			System.out.println("Digite a data da consulta: (DIA/MES/ANO)");
 			String data = teclado.nextLine();
-			GerenciadorConsultas.CriaConsulta(nomeMedico, especialidade, data, descricao);
+			System.out.println("");
+			System.out.println("");
 			System.out.println("Digite 0 para voltar ao Menu");
+			
+			GerenciadorConsultas.CriaConsulta(nomeMedico, especialidade, data, descricao);
 			int opcao = teclado.nextInt();
 			
 			if (opcao == 0) {

@@ -1,7 +1,6 @@
 package ci062;
 import viewText.TelaCadastro;
 import viewText.TelaMenu;
-import viewText.TelaExame;
 import controller.*;
 import model.*;
 import viewText.TelaCadastro;
@@ -11,8 +10,10 @@ public class App {
 
 	public static void main(String[] args) 
 	{
-		//TelaMenu.telaMenu();
-		TelaExame.telaExame();
+		TelaMenu.telaMenu();
+		//ContatoMedico(String nome, String telefone, String endereco, String especialidade) 
+		//ContatoMedico contato = new ContatoMedico("nome", "2020222", "rua luzi leao", "achismo");
+		
 		//nome = GerenciadorUsuario.retornaDado(5);
 		
 		//GerenciadorUsuario.CriaUsuario("Renata Farias", "Rua Luiz Leao", "Tenho bronquite", null);

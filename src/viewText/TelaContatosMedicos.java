@@ -86,9 +86,8 @@ public class TelaContatosMedicos {
 		String endereco = teclado.nextLine();
 		System.out.println("Qual a especialidade do médico?");
 		String especialidade = teclado.nextLine();
-		
+		int id = 0;
 		GerenciadorMedico.cadastraMedico(nomeMedico, telefone, endereco, especialidade);
-		
 		
 		System.out.println("Digite 0 para voltar ao Menu");
 		int opcao = teclado.nextInt();
