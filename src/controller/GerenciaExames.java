@@ -4,11 +4,17 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+import java.util.Scanner;
 
 import model.Exames;
 import model.Usuario;
+import viewText.TelaMenu;
 
 public class GerenciaExames {
 	
@@ -40,18 +46,18 @@ public class GerenciaExames {
     }
     
 
-    public void AdicionaDadoExame(String nome, String resultado, Calendar data, String descricao, ArrayList<String> imagens, ArrayList<String> videos,Usuario usuarioSessao)
+    public void AdicionaDadoExame(String nome, String resultado, Calendar data, String descricao, ArrayList<String> imagens, ArrayList<String> videos,Usuario usuarioSessao,String campo,String info)
 	{ 
 	    //Tenta abrir o arquivo para leitura
 		
-	    try (BufferedReader br = new BufferedReader(new FileReader(usuarioSessao.getNome()+".txt"))) 
+	    try (BufferedReader br = new BufferedReader(new FileReader("usuarioExames.txt"))) 
 	    { 
 	        String line="";
 	        
-	        //Leitura de linha por linha no laço
+	        
 	        while ((line = br.readLine()) != null) 
 	        { 
-	            //Verifica se a linha contém o nome, se sim, imprime a linha
+	          
 	            if (line.contains(campo))
 	            {
 	            	
@@ -93,4 +99,59 @@ public class GerenciaExames {
 	        
 	    }
 
-}
+	public static void telaVisualizarConsulta ()throws IOException 
+	{
+		limpaTela();
+	
+		GerenciadorConsultas.leitor();
+		
+	}
+	
+	public static String retornaDado (int campoParaRetornar)
+	{
+		Path path = Paths.get("Exame.txt");
+		List<String> linhas;
+		String hashMap = "";
+		int separadorUm = 0, separadorDois = 0;
+		
+		try 
+		{
+			linhas = Files.readAllLines(path);
+			
+			switch (campoParaRetornar)
+			{
+				case 1: return linhas.get(0).toString(); //Retornar nome	
+				case 2: return linhas.get(1).toString(); //Retornar endereço	
+				case 3: return linhas.get(2).toString(); //Retornar infoEmergencia
+				
+				//Retornar Nome do contato de emergencia
+				case 4:
+				{
+					hashMap = linhas.get(3).toString();
+					separadorUm = hashMap.indexOf("{") + 1;
+					separadorDois = hashMap.indexOf("=");
+					return linhas.get(3).substring(separadorUm, separadorDois);
+				}
+				
+				//Retornar Telefone do contato de emergencia do HashMap
+				case 5: 
+				{
+					hashMap = linhas.get(3).toString();
+					separadorUm = hashMap.indexOf("=") + 1;
+					separadorDois = hashMap.indexOf("}");
+					return linhas.get(3).substring(separadorUm, separadorDois);
+				}
+			}
+		}
+		
+		catch (Exception e) 
+		{
+			System.out.println("Erro ao retornar dado do usuario");
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+}	
+
+

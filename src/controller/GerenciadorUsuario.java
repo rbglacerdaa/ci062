@@ -19,7 +19,7 @@ public class GerenciadorUsuario
         {
             Usuario usuario = new Usuario(nome, endereco, informacoesEmergencia, contatosEmergencia);
         	
-        	FileWriter f = new FileWriter("usuario.txt", true); //TODO: O arquivo não é limpo ao criar um novo usuario. Usuarios antigos estão poluindo o arquivo.
+        	FileWriter f = new FileWriter("/Users/ronaldbatista/ricardo/ci062/usuario.txt", true); //TODO: O arquivo não é limpo ao criar um novo usuario. Usuarios antigos estão poluindo o arquivo.
             
             f.write
             (
@@ -44,7 +44,7 @@ public class GerenciadorUsuario
     }
 
 
-	public static boolean ExisteUsuario (String nome)
+	/*public static boolean ExisteUsuario (String nome)
 	{ 
 	    //Tenta abrir o arquivo para leitura
 	    try (BufferedReader br = new BufferedReader(new FileReader(nome+".txt"))) 
@@ -69,13 +69,13 @@ public class GerenciadorUsuario
 	    }
 	    
 	    return false;
-	}
+	}*/
 	
 	public static void editaUsuario (int campoDeAlteracao, String novoDadoUm, String novoDadoDois)
 	{
 		try (Scanner tecladoLocal = new Scanner(System.in)) 
 		{
-			Path path = Paths.get("usuario.txt");
+			Path path = Paths.get("/Users/ronaldbatista/ricardo/ci062/usuario.txt");
 			List<String> linhas;
 			
 			switch (campoDeAlteracao)
@@ -140,7 +140,7 @@ public class GerenciadorUsuario
 	
 	public static String retornaDado (int campoParaRetornar)
 	{
-		Path path = Paths.get("usuario.txt");
+		Path path = Paths.get("/Users/ronaldbatista/ricardo/ci062/usuario.txt");
 		List<String> linhas;
 		String hashMap = "";
 		int separadorUm = 0, separadorDois = 0;

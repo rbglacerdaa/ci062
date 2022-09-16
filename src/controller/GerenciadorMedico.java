@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -18,7 +19,7 @@ public class GerenciadorMedico
 			ContatoMedico medico = new ContatoMedico(nome, telefone, endereco, especialidade);
 			int id = medico.getid();
 			
-			FileWriter f = new FileWriter("medicos_" + id + ".txt", true);
+			FileWriter f = new FileWriter("/Users/ronaldbatista/ricardo/ci062/medicos/medicos_" + id + ".txt", true);
             
             f.write
             (
@@ -43,16 +44,33 @@ public class GerenciadorMedico
         return false;
 	}
 	
-	public static List<String> exibeMedicos () // TODO: Erro ao mostrar varios médicos
+	public static void exibeMedicos () // TODO: Erro ao mostrar varios médicos
 	{
+		File pasta = new File("/Users/ronaldbatista/ricardo/ci062/medicos"); 
+		int contador = 0;
 		
-		Path path = Paths.get("medicos.txt");
-		List<String> linhas;
+		File[] lista = pasta.listFiles();
+
+		for (File file : lista) 
+		{
+		    if (file.isFile()) {
+		        contador ++;
+		    }
+		}
 		
 		try 
 		{
-			linhas = Files.readAllLines(path);
-			return linhas;
+			for (int i=0; i<contador; i++)
+			{
+				Path path = Paths.get("medicos_"+contador+".txt");
+				List<String> linhas;
+				linhas = Files.readAllLines(path);
+				
+				System.out.println("Nome: "+linhas.get(0).toString());
+				System.out.println("Telefone: "+linhas.get(1).toString());
+				System.out.println("Endereço: "+linhas.get(2).toString());
+				System.out.println("Especialidade: "+linhas.get(3).toString());
+			}
 		}
 		
 		catch (Exception e)
@@ -60,8 +78,5 @@ public class GerenciadorMedico
 			System.out.println("Erro ao tentar exibir medicos");
 			e.printStackTrace();
 		}
-		
-		return null;
 	}
-
 }
