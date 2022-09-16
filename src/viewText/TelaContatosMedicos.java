@@ -1,7 +1,10 @@
 package viewText;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import controller.GerenciadorMedico;
 
 public class TelaContatosMedicos {
 	protected static void limpaTela()
@@ -44,15 +47,14 @@ public class TelaContatosMedicos {
 	{
 		limpaTela();
 		Scanner teclado = new Scanner(System.in);
-		ArrayList<String>data = null;
-		//TODO: Controller deve criar uma funcao para retornar os contatos medicos arrayList com todos os contatos.
-		int quantidadeContatos = 0; // 
+		List<String>data = GerenciadorMedico.exibeMedicos();
+		int quantidadeContatos = data.size(); 
 		System.out.println("Seus contatos medicos");
-		for (int i = 0; i < quantidadeContatos; ) {
-			System.out.println("Nome: " + data[i]);
-			System.out.println("telefone: " + data[i+1]);
-			System.out.println("endereco: " + data[i+2]);
-			System.out.println("especialidade: " + data[i+3]);
+		for (int i = 0; i < quantidadeContatos-3; i++) {
+			System.out.println("Nome: " + data.get(i).toString());
+			System.out.println("telefone: " + data.get(i+1).toString());
+			System.out.println("endereco: " + data.get(i+2).toString());
+			System.out.println("especialidade: " + data.get(i+3).toString());
 		}
 		System.out.println("");
 		System.out.println("");
@@ -85,7 +87,9 @@ public class TelaContatosMedicos {
 		System.out.println("Qual a especialidade do médico?");
 		String especialidade = teclado.nextLine();
 		
-		//TODO: Criar método para Cadastrar um novo contato médico
+		GerenciadorMedico.cadastraMedico(nomeMedico, telefone, endereco, especialidade);
+		
+		
 		System.out.println("Digite 0 para voltar ao Menu");
 		int opcao = teclado.nextInt();
 		
@@ -95,6 +99,7 @@ public class TelaContatosMedicos {
 	}
 	
 	
+	//TODO: Editar qual contato médico? Tem mais de um...
 	public static void telaModificarContatoMedico()
 	{
 		limpaTela();
@@ -140,8 +145,17 @@ public class TelaContatosMedicos {
 	{
 		limpaTela();
 		Scanner teclado = new Scanner(System.in);
-		//TODO: Reutilizar método de listar contatos medicos
-		int quantidadeContatos = 0; // preencher com info vinda do metodo a fazer pelo controller
+		
+		List<String>data = GerenciadorMedico.exibeMedicos();
+		int quantidadeContatos = data.size(); 
+		System.out.println("Seus contatos medicos");
+		for (int i = 0; i < quantidadeContatos-3; i++) {
+			System.out.println("Nome: " + data.get(i).toString());
+			System.out.println("telefone: " + data.get(i+1).toString());
+			System.out.println("endereco: " + data.get(i+2).toString());
+			System.out.println("especialidade: " + data.get(i+3).toString());
+		}
+		
 		String medico = ""; // preencher com info vinda do metodo a fazer pelo controller
 		String especialidade =  ""; // preencher com info vinda do metodo a fazer pelo controller
 		System.out.println("Escolha um contato médico para excluir:");

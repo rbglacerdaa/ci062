@@ -71,7 +71,7 @@ public class GerenciadorUsuario
 	    return false;
 	}
 	
-	public static void editaUsuario (int campoDeAlteracao)
+	public static void editaUsuario (int campoDeAlteracao, String novoDadoUm, String novoDadoDois)
 	{
 		try (Scanner tecladoLocal = new Scanner(System.in)) 
 		{
@@ -81,65 +81,45 @@ public class GerenciadorUsuario
 			switch (campoDeAlteracao)
 			{
 				case 1:
-					//Editar nome	
-					String novoNome = "";
-					
-					System.out.println("Digite o novo nome:");
-					novoNome = tecladoLocal.next();
-					
+					//Editar nome
 					linhas = Files.readAllLines(path);
 					
 					linhas.remove(0);
 					
-					linhas.add(0, novoNome);
+					linhas.add(0, novoDadoUm);
 
 			        Files.write(path, linhas);
 				break;
 				
 				case 2:
 					//Editar endereço
-					String novoEndereco = "";
-					
-					System.out.println("Digite o novo endereço:");
-					novoEndereco = tecladoLocal.next();
-
 					linhas = Files.readAllLines(path);
 					
 					linhas.remove(1);
 			        
-					linhas.add(1, novoEndereco);
+					linhas.add(1, novoDadoUm);
 
 			        Files.write(path, linhas);
 				break;
 				
 				case 3:
 					//Editar informações de emergência
-					String novaInfoEmergencia = "";
-					
-					System.out.println("Digite o novo endereço:");
-					novaInfoEmergencia = tecladoLocal.next();
-					
 					linhas = Files.readAllLines(path);
 					
 					linhas.remove(2);
 					
-			        linhas.add(2, novaInfoEmergencia);
+			        linhas.add(2, novoDadoUm);
 
 			        Files.write(path, linhas);
 				break;
 				
 				case 4:
 					//Editar contatos de emergência
+					//Novo familiar = novoDadoUm
+					//Novo telefone do familiar = novoDadoDois
 					HashMap<String, String> novoContatoEmergencia = new HashMap<>();
-					String novoFamiliar = "", novoFamiliarTelefone = ""; 
-					
-					System.out.println("Digite o nome do novo familiar:");
-					novoFamiliar = tecladoLocal.next();
-					
-					System.out.println("Digite o contato deste novo familiar:");
-					novoFamiliarTelefone = tecladoLocal.next();
-					
-					novoContatoEmergencia.put(novoFamiliar, novoFamiliarTelefone);
+					 
+					novoContatoEmergencia.put(novoDadoUm, novoDadoDois);
 					
 					linhas = Files.readAllLines(path);
 					
@@ -179,7 +159,7 @@ public class GerenciadorUsuario
 				case 4:
 				{
 					hashMap = linhas.get(3).toString();
-					separadorUm = hashMap.indexOf("{");
+					separadorUm = hashMap.indexOf("{") + 1;
 					separadorDois = hashMap.indexOf("=");
 					return linhas.get(3).substring(separadorUm, separadorDois);
 				}
@@ -188,7 +168,7 @@ public class GerenciadorUsuario
 				case 5: 
 				{
 					hashMap = linhas.get(3).toString();
-					separadorUm = hashMap.indexOf("=");
+					separadorUm = hashMap.indexOf("=") + 1;
 					separadorDois = hashMap.indexOf("}");
 					return linhas.get(3).substring(separadorUm, separadorDois);
 				}

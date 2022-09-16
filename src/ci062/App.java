@@ -10,7 +10,15 @@ public class App {
 
 	public static void main(String[] args) 
 	{
-		TelaMenu.telaMenu();
+		//TelaMenu.telaMenu();
+		String nome = "";
+		
+		
+		//nome = GerenciadorUsuario.retornaDado(5);
+		
+		GerenciadorUsuario.CriaUsuario("Renata Farias", "Rua Luiz Leao", "Tenho bronquite", null);
+		
+		//System.out.println(nome);
 	}
 
 }
