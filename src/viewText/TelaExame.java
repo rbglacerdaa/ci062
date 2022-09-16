@@ -1,8 +1,9 @@
-package model;
+package viewText;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import controller.GerenciaExames;
 import controller.GerenciadorUsuario;
 
 import java.io.*;
@@ -19,51 +20,49 @@ public class TelaExame{
 			{
 				limpaTela();
 				Scanner teclado = new Scanner(System.in);
-				System.out.println("Digite 1 para visualizar Exame");
+				System.out.println("Digite 1 para visualizar Exames");
+				System.out.println("Digite 2 para Criar um Exames");
 				System.out.println("Digite 0 para voltar ao Menu Principal");
 				int opcao = teclado.nextInt();
 				switch (opcao) {
 					case 0:
-						//telaMenu.telaMenu();
+						TelaMenu.telaMenu();
 						break;
 					case 1:
-						telaVisualizarExame();
+						telaExibeExame();
+						break;
+					case 2:
+						criaExame();
 						break;
 
 				}
 			}
-		
-
-			public static void telaVizualizarExame()
+			
+			public static void criaExame()
 			{
 				limpaTela();
-				
 				Scanner teclado = new Scanner(System.in);
-				System.out.println("Seus dados pessoais");
-				System.out.println("Nome: " + GerenciaExame.retornaDado(1));
-				System.out.println("Resultado: " + GerenciaExame.retornaDado(2));
-				System.out.println("Data: " + GerenciaExame.retornaDado(3));
-				System.out.println("Descricao: " + GerenciaExame.retornaDado(4));
-				System.out.println("Imagens: " + GerenciaExame.retornaDado(5));
-				System.out.println("Video: " + GerenciaExame.retornaDado(6));
-				System.out.println("");
-				System.out.println("");
-				System.out.println("Digite 0 para voltar ao Menu");
-				int opcao = teclado.nextInt();
+				System.out.println("Qual o nome do exame que irá realizar?");
+				String nomeExame = teclado.nextLine();
+				System.out.println("Qual a data do exame:");
+				String data = teclado.nextLine();
+				System.out.println("Digite uma descrição para o exame:");
+				String descricao = teclado.nextLine();
 				
-				if (opcao == 0) {
+				boolean response = GerenciaExames.CriaExame(nomeExame, data, descricao);
+				if (response == true) {
+					System.out.println("Exame criado com sucesso!");
+					try { Thread.sleep (2000); } catch (InterruptedException ex) {}
 					TelaMenu.telaMenu();
 				}
+				
 			}
 			
-
-			
 		
-			public static void telaVisualizarExame()
+			public static void telaExibeExame()
 			{
 				limpaTela();
-			
-				GerenciaExames.leitor();
+				GerenciaExames.exibeExames();
 				
 			}
 			

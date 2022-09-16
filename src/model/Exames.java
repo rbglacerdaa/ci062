@@ -8,13 +8,13 @@ public class Exames extends Agendamentos{
     private String nome;
     private String resultado;
 
-    public Exames(String nome, String resultado, Calendar data, String descricao, ArrayList<String> imagens, ArrayList<String> videos) {
-        super(data, descricao, imagens, videos);
+    public Exames(String nome, String data, String descricao, String resultado) {
+        super(data, descricao);
         this.nome = nome;
         this.resultado = resultado != null ? resultado : null;
     }
 
-    public ArrayList<String> getExameInfos(){
+   /* public ArrayList<String> getExameInfos(){
         //retorna um array com as informações do exame
         ArrayList<String> infos = new ArrayList<String>();
         infos.add("Nome: " + this.nome);
@@ -24,6 +24,22 @@ public class Exames extends Agendamentos{
         infos.add("Imagens: " + this.imagens);
         infos.add("Videos: " + this.videos);
         return infos;
+    }*/
+    
+    public String getNome() {
+    	return this.nome;
+    }
+    
+    public String getData() {
+    	return this.data;
+    }
+    
+    public String getDescricao() {
+    	return this.descricao;
+    }
+    
+    public String getResultado() {
+    	return this.resultado;
     }
     
     public void setNome(String nome) {

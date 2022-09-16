@@ -20,9 +20,8 @@ public class GerenciadorConsultas{
 	static int id=0;
 	public static boolean CriaConsulta (String medico, String especialidade, String data, String descricao) 
 	    { 
-	        try 
-	        {
-	        	
+	      try 
+	        {  	
 	        	String diagnostico = null;
 	        	String prescricao = null;
 	        	String laudo = null;
@@ -57,7 +56,7 @@ public class GerenciadorConsultas{
 
 
 	    
-	public static void AdicionaDadoConsulta(String campo,String info)
+	/*public static void AdicionaDadoConsulta(String campo,String info)
 	{ 
 	    //Tenta abrir o arquivo para leitura
 		
@@ -82,8 +81,6 @@ public class GerenciadorConsultas{
 	       
 	        
 	    }
-	
-	
 	    catch (Exception e)
 	    {
 	        System.out.println("Erro na leitura do arquivo");
@@ -91,13 +88,12 @@ public class GerenciadorConsultas{
 	    }
 	    
 	
-}
+}*/
 
 	public static void exibeConsultas()
 	{
-		
 		File pasta = new File("/Users/ronaldbatista/ricardo/ci062/consultas"); 
-		int contador = 0;
+		int contador = -1; // POR CAUSA DO .DS_STORE É PRECISO COMEÇAR DE -1, SE O ARQUIVO NAO ESTIVER NA PASTA PODE COMEÇAR DE ZERO.
 		
 		File[] lista = pasta.listFiles();
 
@@ -107,7 +103,6 @@ public class GerenciadorConsultas{
 		        contador ++;
 		    }
 		}
-		
 		try 
 		{
 			for (int i=0; i<contador; i++)
@@ -119,10 +114,10 @@ public class GerenciadorConsultas{
 				System.out.println(linhas.get(0).toString());
 				System.out.println(linhas.get(1).toString());
 				System.out.println(linhas.get(2).toString());
+				System.out.println(linhas.get(3).toString());
 				System.out.println(linhas.get(4).toString());
 				System.out.println(linhas.get(5).toString());
 				System.out.println(linhas.get(6).toString());
-				System.out.println(linhas.get(7).toString());
 				System.out.println("----------------------");
 			}
 		}
@@ -131,36 +126,7 @@ public class GerenciadorConsultas{
 		{
 			System.out.println("Erro ao tentar exibir Consultas");
 			e.printStackTrace();
-		}
-		
-		
-		
-		/*
-		try{
-
-			BufferedReader buffRead = new BufferedReader(new FileReader("Consultas.txt"));
-			String linha = "";
-			//ArrayList<String> retorno = new ArrayList<String>();
-			while (true) {
-				if (linha != null) {
-					//retorno.add(linha);
-					System.out.println("linha");
-	
-				} else
-					break;
-				linha = buffRead.readLine();
-			}
-			buffRead.close();
-			//return retorno;
-				
-		}
-		catch (Exception e)
-	    {
-	        System.out.println("Erro na leitura do arquivo");
-	        e.printStackTrace();
-	    }
-		//return null;
-		 */
+		}	
 	}
 
 }

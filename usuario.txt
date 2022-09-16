@@ -1,12 +1,4 @@
-nivonmo
-luiz leao,1
-Não
-{vovó=279999-9999}
 Ronald
-luiz lion,1
-nao
-{fami=41-99999999}
-Nomito
-enderecido
-nao
-{fami=419999999}
+Rua Luiz Leão, 1
+41-99999-9999
+{Familiar=4199999-9999}
