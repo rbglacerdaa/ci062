@@ -112,7 +112,7 @@ public class GerenciadorConsultas{
 		{
 			for (int i=0; i<contador; i++)
 			{
-				Path path = Paths.get("consulta_"+contador+".txt");
+				Path path = Paths.get("/Users/ronaldbatista/ricardo/ci062/consultas/consulta_" + contador + ".txt");
 				List<String> linhas;
 				linhas = Files.readAllLines(path);
 				System.out.println("----------------------");
@@ -129,7 +129,7 @@ public class GerenciadorConsultas{
 		
 		catch (Exception e)
 		{
-			System.out.println("Erro ao tentar exibir medicos");
+			System.out.println("Erro ao tentar exibir Consultas");
 			e.printStackTrace();
 		}
 		

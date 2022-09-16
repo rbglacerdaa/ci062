@@ -63,7 +63,7 @@ public class GerenciadorMedico
 		{
 			for (int i=0; i<contador; i++)
 			{
-				Path path = Paths.get("medicos_"+contador+".txt");
+				Path path = Paths.get("/Users/ronaldbatista/ricardo/ci062/medicos/medicos_"+contador+".txt");
 				List<String> linhas;
 				linhas = Files.readAllLines(path);
 				System.out.println("----------------------");

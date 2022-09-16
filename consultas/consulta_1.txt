@@ -1,0 +1,7 @@
+medico:novomed
+especialidade:coals
+diagnostico:null
+prescricao:null
+laudo:null
+data:20/02/2023
+descricao:aoisdalskdal
