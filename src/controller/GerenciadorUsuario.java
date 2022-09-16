@@ -73,7 +73,7 @@ public class GerenciadorUsuario
 	
 	public static void editaUsuario (int campoDeAlteracao, String novoDadoUm, String novoDadoDois)
 	{
-		try (Scanner tecladoLocal = new Scanner(System.in)) 
+		try  
 		{
 			Path path = Paths.get("/Users/ronaldbatista/ricardo/ci062/usuario.txt");
 			List<String> linhas;
@@ -89,7 +89,7 @@ public class GerenciadorUsuario
 					linhas.add(0, novoDadoUm);
 
 			        Files.write(path, linhas);
-				break;
+			        break;
 				
 				case 2:
 					//Editar endereço
@@ -100,7 +100,7 @@ public class GerenciadorUsuario
 					linhas.add(1, novoDadoUm);
 
 			        Files.write(path, linhas);
-				break;
+			        break;
 				
 				case 3:
 					//Editar informações de emergência
@@ -111,7 +111,7 @@ public class GerenciadorUsuario
 			        linhas.add(2, novoDadoUm);
 
 			        Files.write(path, linhas);
-				break;
+			        break;
 				
 				case 4:
 					//Editar contatos de emergência
@@ -128,7 +128,7 @@ public class GerenciadorUsuario
 			        linhas.add(3, novoContatoEmergencia.toString());
 
 			        Files.write(path, linhas);
-				break;
+			        break;
 			}
 		}
 		

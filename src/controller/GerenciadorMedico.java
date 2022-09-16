@@ -66,11 +66,12 @@ public class GerenciadorMedico
 				Path path = Paths.get("medicos_"+contador+".txt");
 				List<String> linhas;
 				linhas = Files.readAllLines(path);
-				
+				System.out.println("----------------------");
 				System.out.println("Nome: "+linhas.get(0).toString());
 				System.out.println("Telefone: "+linhas.get(1).toString());
 				System.out.println("Endereço: "+linhas.get(2).toString());
 				System.out.println("Especialidade: "+linhas.get(3).toString());
+				System.out.println("----------------------");
 			}
 		}
 		

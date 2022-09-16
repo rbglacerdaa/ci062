@@ -55,13 +55,13 @@ public class TelaMenu {
 		int opcao = teclado.nextInt();
 		switch (opcao) {
 			case 1:
-				//TelaCadastro.telaDadosPessoais();
+				TelaCadastro.telaDadosPessoais();
 				break;
 			case 2:
-				TelaContatosMedicos.telaContatosMedicos();
+				//TelaContatosMedicos.telaContatosMedicos(); // CADASTRAR E EXIBIR - TESTADO COM SUCESSO
 				break;
 			case 3:
-				// tela de consultas
+				//TelaConsulta.telaConsulta();
 				break;
 			case 4:
 				// tela de exames

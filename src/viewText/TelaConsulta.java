@@ -20,7 +20,7 @@ public class TelaConsulta{
 		{
 			limpaTela();
 			Scanner teclado = new Scanner(System.in);
-			System.out.println("Digite 1 para visualizar consulta");
+			System.out.println("Digite 1 para visualizar suas consultas");
 			System.out.println("Digite 2 para agendar consulta");
 			System.out.println("Digite 3 para modificar uma consulta");
 			System.out.println("Digite 0 para voltar ao Menu Principal");
@@ -71,7 +71,7 @@ public class TelaConsulta{
 		}
 		
 	
-		public static void telaVisualizarConsulta ()throws IOException 
+	/*	public static void telaVisualizarConsulta ()throws IOException 
 		{
 			limpaTela();
 			Scanner teclado = new Scanner(System.in);
@@ -99,74 +99,6 @@ public class TelaConsulta{
 			GerenciadorConsultas.leitor();
 			
 		}
-		
-}	
-	/*	public static void telaCriarContatoMedico()
-		{
-			limpaTela();
-			Scanner teclado = new Scanner(System.in);
-
-			System.out.println("Vamos criar um novo Contato Medico!");
-			System.out.println("Qual o nome do seu médico?");
-			String nomeMedico = teclado.nextLine();
-			System.out.println("Digite o telefone do médico:");
-			String telefone = teclado.nextLine();
-			System.out.println("Digite o endereco do médico:");
-			String endereco = teclado.nextLine();
-			System.out.println("Qual a especialidade do médico?");
-			String especialidade = teclado.nextLine();
-			
-			//TODO: Criar método para Cadastrar um novo contato médico
-			System.out.println("Digite 0 para voltar ao Menu");
-			int opcao = teclado.nextInt();
-			
-			if (opcao == 0) {
-				TelaMenu.telaMenu();
-			}
-		}
-		
-		
-		public static void telaModificarContatoMedico()
-		{
-			limpaTela();
-			Scanner teclado = new Scanner(System.in);
-			System.out.println("Escolha qual campo deseja alterar");
-			System.out.println("(1) - Nome");
-			System.out.println("(2) - Telefone");
-			System.out.println("(3) - Endereco");
-			System.out.println("(4) - Especialidade");
-			int opcao = teclado.nextInt();
-			switch (opcao)
-			{
-				case 1:
-					System.out.println("Escolha o novo nome do usuario:");
-					String novoNome = teclado.nextLine();
-					// TODO: Criar método para alterar Nome
-					break;
-				case 2:
-					System.out.println("Digite um novo telefone:");
-					String telefone = teclado.nextLine();
-					// TODO: Criar método para alterar telefone
-					break;
-				case 3:
-					System.out.println("Digite um novo endereco:");
-					String endereco = teclado.nextLine();
-					// TODO: Criar método para alterar endereco 
-					break;
-				case 4:
-					System.out.println("Digite a nova especialidade");
-					String especialidade = teclado.nextLine();
-					// TODO: Criar método para alterar especialidade
-					break;
-			}
-			System.out.println("Alterações concluidas!");
-			System.out.println("Digite 0 para voltar ao Menu");
-			int opt = teclado.nextInt();
-			if (opt == 0)
-				TelaMenu.telaMenu();
-		}
-		
 		*/
-
-	
+}	
 
