@@ -63,6 +63,13 @@ public class TelaExame{
 			{
 				limpaTela();
 				GerenciaExames.exibeExames();
+				System.out.println("");
+				System.out.println("");
+				System.out.println("Digite 0 para voltar ao Menu");
+				Scanner teclado = new Scanner(System.in);
+				int opcao = teclado.nextInt();
+				if (opcao == 0)
+					TelaMenu.telaMenu();
 				
 			}
 			
