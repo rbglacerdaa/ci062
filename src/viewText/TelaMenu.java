@@ -48,12 +48,16 @@ public class TelaMenu {
 		switch (opcao) {
 			case 1:
 				TelaCadastro.telaDadosPessoais();
+				break;
 			case 2:
 				TelaContatosMedicos.telaContatosMedicos();
+				break;
 			case 3:
 				// tela de consultas
+				break;
 			case 4:
 				// tela de exames
+				break;
 		}
 	}
 	

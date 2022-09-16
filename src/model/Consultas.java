@@ -44,4 +44,20 @@ public class Consultas extends Agendamentos{
     	return this.laudo;
     	
     }
+    
+    public void setMedico(String medico) {
+    	this.medico = medico;
+    }
+    
+    public void setEspecialidade(String especialidade) {
+    	this.especialidade = especialidade;
+    }
+    
+    public void setDiagnostico (String diagnostico) {
+    	this.diagnostico = diagnostico;
+    }
+    
+    public void setLaudo(String laudo){
+    	this.laudo = laudo;
+    }
 }

@@ -27,6 +27,21 @@ public class Agendamentos {
         infos.add("Videos: " + videos);
         return infos;
     }
-
+    
+    public void setData (Calendar data) {
+    	this.data = data;
+    }
+    
+    public void setDescricao(String descricao) {
+    	this.descricao = descricao;
+    }
+    
+    public void setImagem(String imagem) {
+    	this.imagens.add(imagem);
+    }
+    
+    public void setVideos (String video) {
+    	this.videos.add(video);
+    }
 
 }
