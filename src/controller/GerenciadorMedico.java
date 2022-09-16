@@ -12,12 +12,13 @@ import model.ContatoMedico;
 
 public class GerenciadorMedico 
 {
+	static int id=0;
 	public static boolean cadastraMedico (String nome, String telefone, String endereco, String especialidade)
 	{
 		try 
 		{
 			ContatoMedico medico = new ContatoMedico(nome, telefone, endereco, especialidade);
-			int id = medico.getid();
+			++id;
 			
 			FileWriter f = new FileWriter("/Users/ronaldbatista/ricardo/ci062/medicos/medicos_" + id + ".txt", true);
             

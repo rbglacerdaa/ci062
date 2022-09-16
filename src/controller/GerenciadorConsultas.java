@@ -120,6 +120,7 @@ public class GerenciadorConsultas{
 	        System.out.println("Erro na leitura do arquivo");
 	        e.printStackTrace();
 	    }
+		return null;
 	}
 
 }

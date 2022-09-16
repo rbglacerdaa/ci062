@@ -5,7 +5,7 @@ public class ContatoMedico {
     private String telefone;
     private String endereco;
     private String especialidade;
-    private static int id=0;
+    private int id=0;
 
     public ContatoMedico(String nome, String telefone, String endereco, String especialidade) {
         this.nome = nome;
