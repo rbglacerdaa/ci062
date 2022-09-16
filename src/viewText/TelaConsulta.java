@@ -111,7 +111,7 @@ public class TelaConsulta{
 				GerenciadorConsultas.exibeConsultas();
 				
 				System.out.println("Digite o número da consulta que deseja alterar:");
-				campoUm = teclado.nextInt();
+				campoUm = Integer.parseInt(teclado.nextLine());
 				limpaTela();
 				
 				System.out.println("Qual campo de consulta deseja alterar?");
@@ -122,7 +122,7 @@ public class TelaConsulta{
 				System.out.println("5 - Laudo");
 				System.out.println("6 - Data");
 				System.out.println("7 - Descrição");
-				campoDois = teclado.nextInt();
+				campoDois = Integer.parseInt(teclado.nextLine());
 				limpaTela();
 				
 				switch (campoDois) 
@@ -131,28 +131,28 @@ public class TelaConsulta{
 						System.out.println("Digite o nome do novo medico");
 						novoDado = teclado.nextLine();
 						resultado = GerenciadorConsultas.editaConsulta(campoUm, campoDois, novoDado);
-					break;
+						break;
 					
 					case 2:
 						limpaTela();
 						System.out.println("Digite o nome da nova especialidade");
 						novoDado = teclado.nextLine();
 						resultado = GerenciadorConsultas.editaConsulta(campoUm, campoDois, novoDado);
-					break;
+						break;
 					
 					case 3:
 						limpaTela();
 						System.out.println("Digite o novo diagnóstico");
 						novoDado = teclado.nextLine();
 						resultado = GerenciadorConsultas.editaConsulta(campoUm, campoDois, novoDado);
-					break;
+						break;
 					
 					case 4:
 						limpaTela();
 						System.out.println("Digite a nova prescrição");
 						novoDado = teclado.nextLine();
 						resultado = GerenciadorConsultas.editaConsulta(campoUm, campoDois, novoDado);
-					break;
+						break;
 					
 					case 5:
 						limpaTela();
@@ -176,10 +176,13 @@ public class TelaConsulta{
 					break;
 				}
 				
-				if (resultado)
+				if (resultado==true)
 					System.out.println("Consulta alterada com sucesso");
 				else
 					System.out.println("Erro ao alterar consulta");
+				
+				try { Thread.sleep (2000); } catch (InterruptedException ex) {}
+				TelaMenu.telaMenu();
 			}
 			
 			catch (Exception e)

@@ -8,6 +8,9 @@ import viewText.TelaCadastro;
 
 import java.io.File;
 import java.lang.*;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Scanner;
 public class App {
 
@@ -15,6 +18,8 @@ public class App {
 	{
 		//TelaMenu.telaBoasVindas();
 		TelaMenu.telaMenu();	
+		
+		
 	}
 
 }

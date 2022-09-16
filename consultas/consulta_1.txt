@@ -1,7 +1,0 @@
-medico:Andrey
-especialidade:Achismo
-diagnostico:null
-prescricao:null
-laudo:null
-data:20/12/2000
-descricao:vou ver o que ele acha

@@ -52,6 +52,7 @@ public class TelaMenu {
 		System.out.println("(2) - Contatos médicos");
 		System.out.println("(3) - Consultas");
 		System.out.println("(4) - Exames");
+		System.out.println("(5) - Notificações");
 		int opcao = teclado.nextInt();
 		switch (opcao) {
 			case 1:
@@ -66,6 +67,10 @@ public class TelaMenu {
 			case 4:
 				TelaExame.telaExame(); // CADASTRAR E EXIBIR - TESTADO COM SUCESSO  ---- TODO: ALTERAR EXAME
 				break;
+			case 5:
+				TelaNotificacoes.notificacoes();
+			default:
+				System.out.println("Opcao inválida");
 		}
 	}
 	

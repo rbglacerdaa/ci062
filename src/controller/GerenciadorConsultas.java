@@ -148,7 +148,7 @@ public class GerenciadorConsultas{
 		
 		try 
 		{
-			Path path = Paths.get("/Users/ronaldbatista/ricardo/ci062/consultas_"+consultaParaEditar+".txt");
+			Path path = Paths.get("/Users/ronaldbatista/ricardo/ci062/consultas/consulta_"+consultaParaEditar+".txt");
 			List<String> linhas;
 			
 			switch (campoParaEditar) 
@@ -241,6 +241,39 @@ public class GerenciadorConsultas{
 		}
 		
 		return false;
+	}
+	
+	public static ArrayList<String> datasConsultas() {
+		File pasta = new File("/Users/ronaldbatista/ricardo/ci062/consultas"); 
+		int contador = -1; // POR CAUSA DO .DS_STORE É PRECISO COMEÇAR DE -1, SE O ARQUIVO NAO ESTIVER NA PASTA PODE COMEÇAR DE ZERO.
+		
+		File[] lista = pasta.listFiles();
+		
+		ArrayList<String> datas = new ArrayList<String>();
+		for (File file : lista) 
+		{
+		    if (file.isFile()) {
+		        contador ++;
+		    }
+		}
+		try 
+		{
+			for (int i=0; i<contador; i++)
+			{
+				Path path = Paths.get("/Users/ronaldbatista/ricardo/ci062/consultas/consulta_" + contador + ".txt");
+				List<String> linhas;
+				linhas = Files.readAllLines(path);
+				datas.add(i + ":" + linhas.get(5).toString());
+			}
+			return datas;
+		}
+		
+		catch (Exception e)
+		{
+			System.out.println("Erro ao tentar exibir Consultas");
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }
