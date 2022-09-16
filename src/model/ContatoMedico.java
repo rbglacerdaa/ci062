@@ -4,11 +4,14 @@ public class ContatoMedico {
     private String nome;
     private String telefone;
     private String endereco;
+    private String especialidade;
 
-    public ContatoMedico(String nome, String telefone, String endereco) {
+    public ContatoMedico(String nome, String telefone, String endereco, String especialidade) {
         this.nome = nome;
         this.telefone = telefone;
         this.endereco = endereco;
+        this.especialidade = especialidade;
+  
     }
 
     public String getNome() {
