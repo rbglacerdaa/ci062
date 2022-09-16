@@ -145,22 +145,25 @@ public class TelaContatosMedicos {
 	{
 		limpaTela();
 		Scanner teclado = new Scanner(System.in);
+		ArrayList<String> medico = new ArrayList<String>();
+		ArrayList<String> especialidade = new ArrayList<String>();
 		
 		List<String>data = GerenciadorMedico.exibeMedicos();
 		int quantidadeContatos = data.size(); 
 		System.out.println("Seus contatos medicos");
 		for (int i = 0; i < quantidadeContatos-3; i++) {
+			System.out.println("----------------");
 			System.out.println("Nome: " + data.get(i).toString());
+			medico.add(data.get(i).toString());
 			System.out.println("telefone: " + data.get(i+1).toString());
 			System.out.println("endereco: " + data.get(i+2).toString());
 			System.out.println("especialidade: " + data.get(i+3).toString());
+			especialidade.add(data.get(i+3).toString());
+			System.out.println("----------------");
 		}
-		
-		String medico = ""; // preencher com info vinda do metodo a fazer pelo controller
-		String especialidade =  ""; // preencher com info vinda do metodo a fazer pelo controller
 		System.out.println("Escolha um contato médico para excluir:");
-		for (int i = 0; i < quantidadeContatos; i++) {
-			System.out.println("Digite " + i + " Para excluir - " + medico + " - " + especialidade );
+		for (int i = 0; i < quantidadeContatos-3; i++) {
+			System.out.println("Digite " + i + " Para excluir - " + medico.get(i) + " - Especialista em: " + especialidade );
 		}
 		
 		int opcao = teclado.nextInt();

@@ -10,13 +10,12 @@ public class App {
 
 	public static void main(String[] args) 
 	{
-		//TelaMenu.telaMenu();
-		String nome = "";
+		TelaMenu.telaMenu();
 		
 		
 		//nome = GerenciadorUsuario.retornaDado(5);
 		
-		GerenciadorUsuario.CriaUsuario("Renata Farias", "Rua Luiz Leao", "Tenho bronquite", null);
+		//GerenciadorUsuario.CriaUsuario("Renata Farias", "Rua Luiz Leao", "Tenho bronquite", null);
 		
 		//System.out.println(nome);
 	}

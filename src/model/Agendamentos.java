@@ -6,29 +6,23 @@ import java.util.Date;
 import java.text.DateFormat;
 
 public class Agendamentos {
-    protected Calendar data;
+    protected String data;
     protected String descricao;
-    protected ArrayList<String> imagens;
-    protected ArrayList<String> videos;
 
-    public Agendamentos(Calendar data, String descricao, ArrayList<String> imagens, ArrayList<String> videos) {
+    public Agendamentos(String data, String descricao) {
         this.data = data;
-        this.descricao = descricao;
-        this.imagens = imagens != null ? imagens : null;
-        this.videos = videos != null ? videos : null;
+        this.descricao = descricao; 
     }
 
     public ArrayList<String> getAgendamentoInfos(){
         //retorna um array com as informações do agendamento
         ArrayList<String> infos = new ArrayList<String>();
-        infos.add("Data: " + data.getTime());
+        //infos.add("Data: " + data.getTime());
         infos.add("Descrição: " + descricao);
-        infos.add("Imagens: " + imagens);
-        infos.add("Videos: " + videos);
         return infos;
     }
     
-    public void setData (Calendar data) {
+    public void setData (String data) {
     	this.data = data;
     }
     
@@ -36,12 +30,4 @@ public class Agendamentos {
     	this.descricao = descricao;
     }
     
-    public void setImagem(String imagem) {
-    	this.imagens.add(imagem);
-    }
-    
-    public void setVideos (String video) {
-    	this.videos.add(video);
-    }
-
 }

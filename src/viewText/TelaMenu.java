@@ -19,19 +19,27 @@ public class TelaMenu {
 		HashMap<String, String> contatoEmergencia = new HashMap<String, String>();
 		System.out.println("Seja bem-vindo, cadastre seu usu�rio. ");
 		System.out.println("Qual seu nome?");
-		String nome = teclado.next();
+		String nome = teclado.nextLine();
 		System.out.println("Digite seu endereço:");
-		String endereco = teclado.next();
-		System.out.println("Possui algum informa��o de emergencia (alergias)?");
-		String informacaoEmergencia = teclado.next();
+		String endereco = teclado.nextLine();
+		System.out.println("Possui algum informação de emergencia (alergias)?");
+		String informacaoEmergencia = teclado.nextLine();
 		System.out.println("Digite um contatos de emergencia");
 		System.out.println("nome do familiar:");
-		String familiarNome = teclado.next();
+		String familiarNome = teclado.nextLine();
 		System.out.println("Telefone de contato do familiar");
-		String familiarTelefone = teclado.next();
+		String familiarTelefone = teclado.nextLine();
 		contatoEmergencia.put(familiarNome, familiarTelefone);
 		
-		GerenciadorUsuario.CriaUsuario(nome, endereco, informacaoEmergencia, contatoEmergencia);
+		boolean response = GerenciadorUsuario.CriaUsuario(nome, endereco, informacaoEmergencia, contatoEmergencia);
+		if (response == true) {
+			System.out.println("Usuário criado com sucesso!");
+			try { Thread.sleep (2000); } catch (InterruptedException ex) {}
+			telaMenu();
+		}
+		else {
+			System.out.println("Falha ao criar usuário :/");
+		}
 	}
 	
 	

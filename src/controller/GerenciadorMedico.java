@@ -42,7 +42,7 @@ public class GerenciadorMedico
         return false;
 	}
 	
-	public static List<String> exibeMedicos ()
+	public static List<String> exibeMedicos () // TODO: Erro ao mostrar varios médicos
 	{
 		
 		Path path = Paths.get("medicos.txt");

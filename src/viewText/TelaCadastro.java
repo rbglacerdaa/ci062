@@ -30,7 +30,7 @@ public class TelaCadastro {
 		switch (opcao) {
 			case 1:
 				telaAlterarDadosPessoais();
-			case 2:
+			case 0:
 				TelaMenu.telaMenu();
 		}
 
@@ -38,15 +38,21 @@ public class TelaCadastro {
 	
 	public static void telaAlterarDadosPessoais()
 	{
+		limpaTela();
 		Scanner teclado = new Scanner(System.in);
-		System.out.println("Escolha qual campo deseja alterar");
+		System.out.println("Escolha qual campo deseja alterar:");
 		System.out.println("(1) - Nome");
 		System.out.println("(2) - Endereço");
 		System.out.println("(3) - Informações de emergencia");
 		System.out.println("(4) - Contato de emergencia");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Digite 0 para voltar ao Menu");
 		int opcao = teclado.nextInt();
 		switch (opcao)
 		{
+			case 0:
+				TelaMenu.telaMenu();
 			case 1:
 				System.out.println("Escolha o novo nome do usuario");
 				String novoNome = teclado.next();
@@ -70,11 +76,8 @@ public class TelaCadastro {
 				break;
 		}
 		System.out.println("Alterações concluidas!");
-		System.out.println("Digite 0 para voltar ao Menu");
-		int opt = teclado.nextInt();
-		if (opt == 0)
-				TelaMenu.telaMenu();
-		
+		try { Thread.sleep (2000); } catch (InterruptedException ex) {}
+		TelaMenu.telaMenu(); // TODO: Está dando erro nesse redirecionamento por algum motivo
 	}
 	
 }

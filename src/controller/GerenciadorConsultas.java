@@ -5,6 +5,9 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+
+import model.Consultas;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -19,12 +22,11 @@ import java.io.*;
 
 public class GerenciadorConsultas{
 	
-	  public static boolean CriaConsulta (String medico, String especialidade, String diagnostico, String prescricao, String laudo,String data, String descricao) 
+	  public static boolean CriaConsulta (String medico, String especialidade, String diagnostico, String prescricao, String laudo, String data, String descricao) 
 	    { 
 	        try 
 	        {
-	             Consultas consulta = new Consultas(medico,especialidade,diagnostico, laudo, data, descricao);
-	            consulta.setConsulta(medico,especialidade,diagnostico, laudo, data, descricao, prescricao);
+	            Consultas consulta = new Consultas(medico, especialidade, diagnostico,prescricao, laudo, data, descricao);
 	        	FileWriter f = new FileWriter("Consulta1.txt", true);
 	            
 	            

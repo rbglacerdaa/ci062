@@ -13,9 +13,9 @@ public class Consultas extends Agendamentos{
 
     
     //Parametros que verificam se são null vc pode passar o parametro com valor null, ou seja, não são obrigatorios de estarem preenchidos, mas são obrigatórios na cria
-    public Consultas(String medico, String especialidade, String diagnostico, String prescricao, String laudo, Calendar data, String descricao, ArrayList<String> imagens, ArrayList<String> videos)
+    public Consultas(String medico, String especialidade, String diagnostico, String prescricao, String laudo, String data, String descricao)
     {
-    	super(data, descricao,imagens,videos);
+    	super(data, descricao);
     	this.medico = medico; // parametro obrigatorio
     	this.especialidade = especialidade;
     	this.diagnostico = diagnostico != null ? diagnostico : null; // parametro opcional

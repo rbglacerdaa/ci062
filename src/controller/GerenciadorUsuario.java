@@ -19,7 +19,7 @@ public class GerenciadorUsuario
         {
             Usuario usuario = new Usuario(nome, endereco, informacoesEmergencia, contatosEmergencia);
         	
-        	FileWriter f = new FileWriter("usuario.txt", true);
+        	FileWriter f = new FileWriter("usuario.txt", true); //TODO: O arquivo não é limpo ao criar um novo usuario. Usuarios antigos estão poluindo o arquivo.
             
             f.write
             (
