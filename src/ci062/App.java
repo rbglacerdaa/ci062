@@ -11,7 +11,8 @@ public class App {
 	public static void main(String[] args) 
 	{
 		TelaMenu.telaMenu();
-		
+		//ContatoMedico(String nome, String telefone, String endereco, String especialidade) 
+		//ContatoMedico contato = new ContatoMedico("nome", "2020222", "rua luzi leao", "achismo");
 		
 		//nome = GerenciadorUsuario.retornaDado(5);
 		

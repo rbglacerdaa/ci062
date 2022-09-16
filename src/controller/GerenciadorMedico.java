@@ -16,8 +16,9 @@ public class GerenciadorMedico
 		try 
 		{
 			ContatoMedico medico = new ContatoMedico(nome, telefone, endereco, especialidade);
+			int id = medico.getid();
 			
-			FileWriter f = new FileWriter("medicos.txt", true);
+			FileWriter f = new FileWriter("medicos_" + id + ".txt", true);
             
             f.write
             (
