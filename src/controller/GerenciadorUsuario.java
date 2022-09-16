@@ -157,5 +157,51 @@ public class GerenciadorUsuario
 			System.out.println("Erro na edição do arquivo");
 		}
 	}
+	
+	public static String retornaDado (int campoParaRetornar)
+	{
+		Path path = Paths.get("usuario.txt");
+		List<String> linhas;
+		String hashMap = "";
+		int separadorUm = 0, separadorDois = 0;
+		
+		try 
+		{
+			linhas = Files.readAllLines(path);
+			
+			switch (campoParaRetornar)
+			{
+				case 1: return linhas.get(0).toString(); //Retornar nome	
+				case 2: return linhas.get(1).toString(); //Retornar endereço	
+				case 3: return linhas.get(2).toString(); //Retornar infoEmergencia
+				
+				//Retornar Nome do contato de emergencia
+				case 4:
+				{
+					hashMap = linhas.get(3).toString();
+					separadorUm = hashMap.indexOf("{");
+					separadorDois = hashMap.indexOf("=");
+					return linhas.get(3).substring(separadorUm, separadorDois);
+				}
+				
+				//Retornar Telefone do contato de emergencia do HashMap
+				case 5: 
+				{
+					hashMap = linhas.get(3).toString();
+					separadorUm = hashMap.indexOf("=");
+					separadorDois = hashMap.indexOf("}");
+					return linhas.get(3).substring(separadorUm, separadorDois);
+				}
+			}
+		}
+		
+		catch (Exception e) 
+		{
+			System.out.println("Erro ao retornar dado do usuario");
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 }
 

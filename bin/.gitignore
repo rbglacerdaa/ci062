@@ -1,4 +1,7 @@
-/model/
-/viewText/
-/controller/
+/.classpath
+/.project
 /ci062/
+/controller/
+/model/
+/view/
+/viewText/
