@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Calendar;
+
 import model.Exames;
 import model.Usuario;
 
@@ -36,9 +39,8 @@ public class GerenciaExames {
         return false;
     }
     
-    
-    public boolean removeDado(Exames exame, Usuario usuarioSessão)
-    public void AdicionaDadoExame(String campo,String info,Usuario usuarioSessao)
+
+    public void AdicionaDadoExame(String nome, String resultado, Calendar data, String descricao, ArrayList<String> imagens, ArrayList<String> videos,Usuario usuarioSessao)
 	{ 
 	    //Tenta abrir o arquivo para leitura
 		
@@ -75,5 +77,20 @@ public class GerenciaExames {
 }
 	
 
+	public static void leitor()
+	{ 
+		BufferedReader buffRead = new BufferedReader(new FileReader("Consultas.txt"));
+		String linha = "";
+		while (true) {
+			if (linha != null) {
+				System.out.println(linha);
+
+			} else
+				break;
+			linha = buffRead.readLine();
+		}
+		buffRead.close();
+	        
+	    }
 
 }

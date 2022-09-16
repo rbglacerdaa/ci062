@@ -1,102 +1,59 @@
 package controller;
 
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
-import model.Consultas;
-import model.Usuario;
 import java.lang.*;
+import java.io.*;
 
-public class GerenciadorConsultas {
+
+public class GerenciadorConsultas{
 	
-	public void CriaConsulta (Consultas novaConsulta, Usuario usuarioSessao) 
-    { 
-        try 
-        {
-        	
-        	FileWriter f = new FileWriter(usuarioSessao.getNome()+".txt", true);
-            
-            f.write
-            (
-                "\n Medico: "+novaConsulta.getMedico()
-                +"\n Especialidade "+novaConsulta.getEspecialidade()
-                +"\n"+"Diagnostico : nenhum diagnostico registrado"
-                +"\n"+"Prescricao : nenhuma prescricao registrada"
-                +"\n"+"Laudo : nenhum laudo registrado "
-            );
-            
-            f.close();
-            
-        } 
-        
-        catch (IOException e) 
-        {
-            System.out.println("Erro no agendamento da consulta");
-            e.printStackTrace();
-        }
-        
-    }
-
-
-	public static boolean ExisteDado(String nome)
-	{ 
-	    //Tenta abrir o arquivo para leitura
-	    try (BufferedReader br = new BufferedReader(new FileReader(nome+".txt"))) 
+	  public static boolean CriaConsulta (String medico, String especialidade, String diagnostico, String prescricao, String laudo,String data, String descricao) 
 	    { 
-	        String line="";
+	        try 
+	        {
+	             Consultas consulta = new Consultas(medico,especialidade,diagnostico, laudo, data, descricao);
+	            consulta.setConsulta(medico,especialidade,diagnostico, laudo, data, descricao, prescricao);
+	        	FileWriter f = new FileWriter("Consulta1.txt", true);
+	            
+	            
+	            f.write
+	            (
+	                ""+consulta.getMedico()
+	            );
+	            
+	            f.close();
+	            
+	            return true;
+	        } 
 	        
-	        //Leitura de linha por linha no laço
-	        while ((line = br.readLine()) != null) 
-	        { 
-	            //Verifica se a linha contém o nome, se sim, imprime a linha
-	            if (line.contains(nome))
-	                return true;
+	        catch (IOException e) 
+	        {
+	            System.out.println("Erro na criacao do novo usuario");
+	            e.printStackTrace();
 	        }
 	        
 	        return false;
 	    }
-	
-	    catch (Exception e)
-	    {
-	        System.out.println("Erro na leitura do arquivo");
-	        e.printStackTrace();
-	    }
-	    
-	    return false;
-	}
-	
 
-	
-	public class ArmazenaString {
-	  
-	    {
-	  	        StringBuffer sbf1 = new StringBuffer("We are geeks and its really ");
-	        System.out.println("Input: " + sbf1);
-	  
-	        // Appending the boolean value
-	        sbf1.append(true);
-	        System.out.println("Output: " + sbf1);
-	  
-	        System.out.println();
-	  
-	        StringBuffer sbf2 = new StringBuffer("We are lost - ");
-	        System.out.println("Input: " + sbf2);
-	  
-	        // Appending the boolean value
-	        sbf2.append(false);
-	        System.out.println("Output: " + sbf2);
+
 	    
-	}
-	    
-	public static void AdicionaDadoConsulta(String campo,String info,Usuario usuarioSessao)
+	public static void AdicionaDadoConsulta(String campo,String info)
 	{ 
 	    //Tenta abrir o arquivo para leitura
 		
-	    try (BufferedReader br = new BufferedReader(new FileReader(usuarioSessao.getNome()+".txt"))) 
+	    try (BufferedReader br = new BufferedReader(new FileReader("Consultas.txt"))) 
 	    { 
 	        String line="";
 	        
@@ -127,5 +84,27 @@ public class GerenciadorConsultas {
 	    
 	
 }
+
+
+	public static void leitor()
+	{ 
+		BufferedReader buffRead = new BufferedReader(new FileReader("Consultas.txt"));
+		String linha = "";
+		while (true) {
+			if (linha != null) {
+				System.out.println(linha);
+
+			} else
+				break;
+			linha = buffRead.readLine();
+		}
+		buffRead.close();
+	        
+	    }
 	
+
 }
+	    
+	
+
+
