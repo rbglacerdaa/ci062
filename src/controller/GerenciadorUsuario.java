@@ -17,7 +17,7 @@ public class GerenciadorUsuario
     { 
         try 
         {
-            Usuario usuario = new Usuario(nome, endereco, informacoesEmergencia, contatosEmergencia);
+            Usuario usuario = Usuario.getInstance(nome, endereco, informacoesEmergencia, contatosEmergencia);
         	
         	FileWriter f = new FileWriter("/Users/ronaldbatista/ricardo/ci062/usuario.txt", true); //TODO: O arquivo não é limpo ao criar um novo usuario. Usuarios antigos estão poluindo o arquivo.
             

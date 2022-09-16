@@ -1,21 +1,28 @@
 package model;
 import java.util.HashMap;
 
-public class Usuario {
-
-    private String nome;
+public class Usuario 
+{
+	private String nome;
     private String endereco;
     private String informacoesEmergencia;
     private HashMap<String, String> contatosEmergencia;  //(familiar, telefone)
+    private static Usuario uniqueInstance;
     
-    public Usuario () {}
-    
-    public Usuario(String nome, String endereco, String informacoesEmergencia, HashMap<String, String> contatosEmergencia) 
+    private Usuario (String nome, String endereco, String informacoesEmergencia, HashMap<String, String> contatosEmergencia) 
     {
-        this.nome = nome;
-        this.endereco = endereco;
-        this.informacoesEmergencia = informacoesEmergencia;
-        this.contatosEmergencia = contatosEmergencia;
+    	this.nome = nome;
+    	this.endereco = endereco;
+    	this.informacoesEmergencia = informacoesEmergencia;
+    	this.contatosEmergencia = contatosEmergencia;
+    }
+    
+    public static synchronized Usuario getInstance (String nome, String endereco, String informacoesEmergencia, HashMap<String, String> contatosEmergencia)
+    {
+    	if (uniqueInstance == null)
+            uniqueInstance = new Usuario(nome, endereco, informacoesEmergencia, contatosEmergencia);
+    	
+    	return uniqueInstance;
     }
 
     // seta o nome do usuario
