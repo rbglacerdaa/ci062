@@ -15,13 +15,13 @@ public class TelaCadastro {
 	public static void telaDadosPessoais() 
 	{
 		Scanner teclado = new Scanner(System.in);
-		//TODO: Controller deve criar uma funcao para retornar as informações do usuario.
+		
 		System.out.println("Seus dados pessoais");
-		System.out.println("Nome: " + nome);
-		System.out.println("Endereço: " + endereco);
-		System.out.println("Informações de emergencia: " + infoEmergencia);
-		System.out.println("Nome do contato de emergencia: " + nomeContatoEmergencia);
-		System.out.println("Telefone do contato de emergencia: " + telefoneContatoEmergencia);
+		System.out.println("Nome: " + GerenciadorUsuario.retornaDado(1));
+		System.out.println("Endereço: " + GerenciadorUsuario.retornaDado(2));
+		System.out.println("Informações de emergencia: " + GerenciadorUsuario.retornaDado(3));
+		System.out.println("Nome do contato de emergencia: " + GerenciadorUsuario.retornaDado(4));
+		System.out.println("Telefone do contato de emergencia: " + GerenciadorUsuario.retornaDado(5));
 		System.out.println("");
 		System.out.println("");
 		System.out.println("Digite 1 para alterar seus dados");
@@ -50,23 +50,23 @@ public class TelaCadastro {
 			case 1:
 				System.out.println("Escolha o novo nome do usuario");
 				String novoNome = teclado.next();
-				// TODO: Criar método para alterar Nome
+				GerenciadorUsuario.editaUsuario(1, novoNome, novoNome);
 				break;
 			case 2:
 				System.out.println("Digite seu novo endereço:");
 				String novoEndereco = teclado.next();
-				// TODO: Criar método para alterar endereco
+				GerenciadorUsuario.editaUsuario(2, novoEndereco, novoEndereco);
 				break;
 			case 3:
 				System.out.println("Adicione novas informações de emergencia");
 				String novoInformacoesEmergencia = teclado.next();
-				// TODO: Criar método para alterar informacoes de emergencia
+				GerenciadorUsuario.editaUsuario(3, novoInformacoesEmergencia, novoInformacoesEmergencia);
 				break;
 			case 4:
 				System.out.println("Digite o nome do seu contato de emergencia");
 				String novoNomeConatoEmergencia = teclado.next();
 				String novoTelefoneContatoEmergencia = teclado.next();
-				// TODO: Criar método para alterar contato de emergencia
+				GerenciadorUsuario.editaUsuario(4, novoNomeConatoEmergencia, novoTelefoneContatoEmergencia);
 				break;
 		}
 		System.out.println("Alterações concluidas!");
