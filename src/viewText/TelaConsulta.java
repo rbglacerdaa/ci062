@@ -1,9 +1,11 @@
 package model;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import controller.GerenciadorConsultas;
+import controller.GerenciadorMedico;
 
 import java.io.*;
 public class TelaConsulta{
@@ -72,7 +74,28 @@ public class TelaConsulta{
 		public static void telaVisualizarConsulta ()throws IOException 
 		{
 			limpaTela();
-		
+			Scanner teclado = new Scanner(System.in);
+			// Receber dados do usuario e guardar em uma variavel data
+			int quantidadeContatos = data.size(); 
+			System.out.println("Suas Consultas");
+			for (int i = 0; i < quantidadeContatos-3; i++) {
+				System.out.println("-----------------");
+				System.out.println("Nome: " + data);
+				System.out.println("telefone: " + data);
+				System.out.println("endereco: " + data);
+				System.out.println("especialidade: " + data);
+				System.out.println("-----------------");
+			}
+			System.out.println("");
+			System.out.println("");
+			System.out.println("Digite 0 para voltar ao Menu");
+			int opcao = teclado.nextInt();
+			switch (opcao) {
+				case 0:
+					TelaMenu.telaMenu();
+					break;
+					
+			}
 			GerenciadorConsultas.leitor();
 			
 		}
