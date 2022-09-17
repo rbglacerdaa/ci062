@@ -16,7 +16,7 @@ public class App {
 
 	public static void main(String[] args) 
 	{
-		//TelaMenu.telaBoasVindas();
+		TelaMenu.telaBoasVindas();
 		TelaMenu.telaMenu();	
 		
 		

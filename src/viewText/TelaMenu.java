@@ -17,7 +17,7 @@ public class TelaMenu {
 	{
 		Scanner teclado = new Scanner(System.in);
 		HashMap<String, String> contatoEmergencia = new HashMap<String, String>();
-		System.out.println("Seja bem-vindo, cadastre seu usu�rio. ");
+		System.out.println("Seja bem-vindo, cadastre seu usuário. ");
 		System.out.println("Qual seu nome?");
 		String nome = teclado.nextLine();
 		System.out.println("Digite seu endereço:");
